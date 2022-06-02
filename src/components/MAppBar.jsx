@@ -26,8 +26,11 @@ class MAppBar extends React.Component {
       <AppBar
         elevation={elevate ? 4 : 0}
         sx={{
-          bgcolor: elevate ? 'primary.main' : 'transparent',
+          bgcolor: elevate ? 'primary.main' : 'background.default',
+          borderBottom: elevate ? 'none' : '1px solid',
+          borderColor: 'action.selected',
           color: elevate ? 'primary.contrastText' : 'text.primary',
+          transition: '250ms background-color',
         }}
       >
         <Toolbar
