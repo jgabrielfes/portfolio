@@ -32,6 +32,7 @@ class App extends React.Component {
     this.handleTheme = this.handleTheme.bind(this);
 
     this.state = {
+      scroll: 0,
       isDrawerOpen: false,
       theme: localStorage.theme
         || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
@@ -41,6 +42,9 @@ class App extends React.Component {
   componentDidMount() {
     const { theme } = this.state;
     setMetaTheme(theme);
+    window.addEventListener("scroll", () => {
+      this.setState({ scroll: document.documentElement.scrollTop });
+    });
   }
 
   handleTheme(theme) {
@@ -51,7 +55,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { isDrawerOpen, theme } = this.state;
+    const { scroll, isDrawerOpen, theme } = this.state;
 
     return (
       <ThemeProvider theme={theme === 'light' ? light : dark}>
@@ -62,11 +66,12 @@ class App extends React.Component {
         >
           <CssBaseline enableColorScheme />
           <MAppBar
+            elevate={scroll > 10}
             isLight={theme === 'light'}
             setTheme={this.handleTheme}
             openDrawer={() => this.setState({ isDrawerOpen: true })}
           />
-          <Content />
+          <Content scroll={scroll > 200} />
           <MDrawer
             open={isDrawerOpen}
             onClose={() => this.setState({ isDrawerOpen: false })}

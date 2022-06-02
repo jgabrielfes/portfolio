@@ -108,12 +108,14 @@ class Home extends React.Component {
             {bio.map(({ year, text, subtext }, index) => (
               <Stack key={`bio-${index}`} direction="row" spacing={3} mt={index === 0 ? 0 : 1}>
                 <Typography fontWeight="bold">{year}</Typography>
-                <Typography align="justify">
-                  {text}
-                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }}>
+                <div>
+                  <Typography>
+                    {text}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary" sx={{ mb: 1 }} align="justify">
                     {subtext}
                   </Typography>
-                </Typography>
+                </div>
               </Stack>
             ))}
           </Paper>

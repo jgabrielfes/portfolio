@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Switch, Route } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Fab from '@mui/material/Fab';
@@ -11,21 +12,8 @@ import NotFound from '../pages/NotFound';
 import routes from '../utils/routes';
 
 class Content extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      scroll: 0,
-    };
-  }
-
-  componentDidMount() {
-    window.addEventListener("scroll", () => {
-      this.setState({ scroll: document.documentElement.scrollTop });
-    });
-  }
-
   render() {
-    const { scroll } = this.state;
+    const { scroll } = this.props;
 
     return (
       <>
@@ -39,7 +27,7 @@ class Content extends React.Component {
             <Route component={NotFound} />
           </Switch>
         </Container>
-        <Zoom in={scroll > 200}>
+        <Zoom in={scroll}>
           <Fab
             color="primary"
             size="small"
@@ -57,5 +45,9 @@ class Content extends React.Component {
     );
   }
 }
+
+Content.propTypes = {
+  scroll: PropTypes.bool.isRequired,
+};
 
 export default Content;

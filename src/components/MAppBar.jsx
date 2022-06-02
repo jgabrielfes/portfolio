@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
 import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
 import Slide from '@mui/material/Slide';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -20,14 +20,14 @@ import underlineEffect from '../utils/underlineEffect';
 
 class MAppBar extends React.Component {
   render() {
-    const { isLight, setTheme, openDrawer, location } = this.props;
+    const { elevate, isLight, setTheme, openDrawer, location } = this.props;
 
     return (
       <AppBar
+        elevation={elevate ? 4 : 0}
         sx={{
-          backgroundImage: 'none',
-          bgcolor: 'primary.main',
-          color: 'primary.contrastText',
+          bgcolor: elevate ? 'primary.main' : 'transparent',
+          color: elevate ? 'primary.contrastText' : 'text.primary',
         }}
       >
         <Toolbar
@@ -62,21 +62,16 @@ class MAppBar extends React.Component {
           </Slide>
 
           <Slide in direction="left" timeout={1000}>
-            <ButtonGroup
-              color="inherit"
-              variant="text"
-              size="large"
-              sx={{ display: { xs: 'none', md: 'inline-flex' } }}
-            >
+            <Stack direction="row" spacing={1} sx={{ display: { xs: 'none', md: 'inline-flex' } }}           >
               {routes.map((route) => (
                 <Button
                   key={route.path}
                   className={location.pathname.includes(route.path) ? 'active' : ''}
+                  color="inherit"
                   component={Link}
                   to={route.path}
-                  style={{ borderColor: 'rgba(0, 0, 0, 0.23)' }}
                   sx={{
-                    '&.active': { bgcolor: 'primary.dark' },
+                    '&.active': { bgcolor: elevate ? 'primary.dark' : 'action.selected' },
                     '&:before': underlineEffect,
                     '&.active:before': { left: 5, right: 5 },
                     '&:hover:not(.active):before': { bgcolor: 'primary.dark', left: 5, right: 5 },
@@ -87,11 +82,11 @@ class MAppBar extends React.Component {
               ))}
 
               <Button
+                color="inherit"
                 component="a"
                 href="https://github.com/jgabrielfes/portfolio"
                 target="blank"
                 startIcon={<GitHubIcon />}
-                style={{ borderColor: 'rgba(0, 0, 0, 0.23)' }}
                 sx={{
                   '&:before': underlineEffect,
                   '&:hover:before': { bgcolor: 'primary.dark', left: 5, right: 5 },
@@ -101,6 +96,7 @@ class MAppBar extends React.Component {
               </Button>
 
               <Button
+                color="inherit"
                 component="a"
                 startIcon={isLight ? <DarkModeIcon /> : <LightModeIcon />}
                 onClick={() => setTheme(isLight ? 'dark' : 'light')}
@@ -111,7 +107,7 @@ class MAppBar extends React.Component {
               >
                 {isLight ? 'Escuro' : 'Claro'}
               </Button>
-            </ButtonGroup>
+            </Stack>
           </Slide>
 
           <Slide in direction="left" timeout={1000}>
@@ -133,6 +129,7 @@ class MAppBar extends React.Component {
 }
 
 MAppBar.propTypes = {
+  elevate: PropTypes.bool.isRequired,
   isLight: PropTypes.bool.isRequired,
   setTheme: PropTypes.func.isRequired,
   openDrawer: PropTypes.func.isRequired,
