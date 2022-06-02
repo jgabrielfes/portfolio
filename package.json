@@ -18,8 +18,6 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "predeploy": "npm run build && cd build && git init && git add . && git commit -m 'Updates' && git remote add origin git@github.com:jgabrielfes/jgabrielfes.github.io.git",
-    "deploy": "cd build && git push origin main --force",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

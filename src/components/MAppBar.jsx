@@ -10,6 +10,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import PortfolioIcon from './PortfolioIcon';
@@ -84,6 +85,20 @@ class MAppBar extends React.Component {
                   {route.text}
                 </Button>
               ))}
+
+              <Button
+                component="a"
+                href="https://github.com/jgabrielfes/portfolio"
+                target="blank"
+                startIcon={<GitHubIcon />}
+                style={{ borderColor: 'rgba(0, 0, 0, 0.23)' }}
+                sx={{
+                  '&:before': underlineEffect,
+                  '&:hover:before': { bgcolor: 'primary.dark', left: 5, right: 5 },
+                }}
+              >
+                Código
+              </Button>
 
               <Button
                 component="a"

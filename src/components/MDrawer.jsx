@@ -14,6 +14,7 @@ import Typography from '@mui/material/Typography';
 
 import CloseIcon from '@mui/icons-material/Close';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 import routes from '../utils/routes';
@@ -75,6 +76,18 @@ class MDrawer extends React.Component {
               </ListItemButton>
             </ListItem>
           ))}
+
+          <ListItem disablePadding>
+            <ListItemButton component="a" href="https://github.com/jgabrielfes/portfolio" target="blank">
+              <ListItemIcon sx={{ color: 'primary.main' }}>
+                <GitHubIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Código"
+                sx={{ color: 'text.primary' }}
+              />
+            </ListItemButton>
+          </ListItem>
 
           <ListItem disablePadding>
             <ListItemButton onClick={() => setTheme(isLight ? 'dark' : 'light')}>
