@@ -32,7 +32,8 @@ class App extends React.Component {
     this.handleTheme = this.handleTheme.bind(this);
 
     this.state = {
-      scroll: 0,
+      elevateAppBar: document.documentElement.scrollTop > 10,
+      scrollToTopButton: document.documentElement.scrollTop > 200,
       isDrawerOpen: false,
       theme: localStorage.theme
         || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'),
@@ -43,7 +44,14 @@ class App extends React.Component {
     const { theme } = this.state;
     setMetaTheme(theme);
     window.addEventListener("scroll", () => {
-      this.setState({ scroll: document.documentElement.scrollTop });
+      const { scrollToTopButton, elevateAppBar } = this.state;
+      if (elevateAppBar !== (document.documentElement.scrollTop > 10)
+        || scrollToTopButton !== (document.documentElement.scrollTop > 200)) {
+        this.setState({
+          elevateAppBar: document.documentElement.scrollTop > 10,
+          scrollToTopButton: document.documentElement.scrollTop > 200,
+        });
+      }
     });
   }
 
@@ -55,7 +63,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { scroll, isDrawerOpen, theme } = this.state;
+    const { elevateAppBar, scrollToTopButton, isDrawerOpen, theme } = this.state;
 
     return (
       <ThemeProvider theme={theme === 'light' ? light : dark}>
@@ -66,12 +74,12 @@ class App extends React.Component {
         >
           <CssBaseline enableColorScheme />
           <MAppBar
-            elevate={scroll > 10}
+            elevate={elevateAppBar}
             isLight={theme === 'light'}
             setTheme={this.handleTheme}
             openDrawer={() => this.setState({ isDrawerOpen: true })}
           />
-          <Content scroll={scroll > 200} />
+          <Content scroll={scrollToTopButton} />
           <MDrawer
             open={isDrawerOpen}
             onClose={() => this.setState({ isDrawerOpen: false })}
