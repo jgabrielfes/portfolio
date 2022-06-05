@@ -10,11 +10,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import DownloadIcon from '@mui/icons-material/Download';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import PortfolioIcon from './PortfolioIcon';
 
+import cv from '../docs/cv.pdf';
 import routes from '../utils/routes';
 import underlineEffect from '../utils/underlineEffect';
 
@@ -83,6 +85,20 @@ class MAppBar extends React.Component {
                   {route.text}
                 </Button>
               ))}
+
+              <Button
+                color="inherit"
+                component="a"
+                href={cv}
+                download="João Ferraz.pdf"
+                startIcon={<DownloadIcon />}
+                sx={{
+                  '&:before': underlineEffect,
+                  '&:hover:before': { bgcolor: 'primary.dark', left: 5, right: 5 },
+                }}
+              >
+                Currículo
+              </Button>
 
               <Button
                 color="inherit"

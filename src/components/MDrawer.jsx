@@ -14,9 +14,11 @@ import Typography from '@mui/material/Typography';
 
 import CloseIcon from '@mui/icons-material/Close';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import DownloadIcon from '@mui/icons-material/Download';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
+import cv from '../docs/cv.pdf';
 import routes from '../utils/routes';
 
 class MDrawer extends React.Component {
@@ -76,6 +78,18 @@ class MDrawer extends React.Component {
               </ListItemButton>
             </ListItem>
           ))}
+
+          <ListItem disablePadding>
+            <ListItemButton component="a" href={cv} download="João Ferraz.pdf">
+              <ListItemIcon sx={{ color: 'primary.main' }}>
+                <DownloadIcon />
+              </ListItemIcon>
+              <ListItemText
+                primary="Currículo"
+                sx={{ color: 'text.primary' }}
+              />
+            </ListItemButton>
+          </ListItem>
 
           <ListItem disablePadding>
             <ListItemButton component="a" href="https://github.com/jgabrielfes/portfolio" target="blank">

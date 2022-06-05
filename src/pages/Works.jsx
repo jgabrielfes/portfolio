@@ -24,7 +24,7 @@ class Works extends React.Component {
               Trabalhos
             </Typography>
             <Typography mb={5} color="text.secondary">
-              Confira alguns dos trabalhos/projetos que já realizei logo abaixo!
+              Confira alguns dos trabalhos/projetos que João realizou logo abaixo!
             </Typography>
           </section>
         </Slide>
