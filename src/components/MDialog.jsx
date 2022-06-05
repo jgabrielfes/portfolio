@@ -14,12 +14,13 @@ class MDialog extends React.Component {
 
     return (
       <Dialog
-        open={open}
-        BackdropProps={{ sx: { backdropFilter: 'blur(5px)' } }}
-        TransitionComponent={Zoom}
+        component="section"
         maxWidth="sm"
         fullWidth
+        open={open}
         onClose={onClose}
+        TransitionComponent={Zoom}
+        BackdropProps={{ sx: { backdropFilter: 'blur(5px)' } }}
       >
         <DialogTitle sx={{ alignItems: 'center', display: 'flex' }}>
           {tool.title}
@@ -44,6 +45,7 @@ MDialog.propTypes = {
   tool: PropTypes.shape({
     title: PropTypes.string,
     description: PropTypes.string,
+    icon: PropTypes.element,
   }).isRequired,
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
