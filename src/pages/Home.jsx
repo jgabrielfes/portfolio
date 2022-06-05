@@ -7,13 +7,17 @@ import Divider from '@mui/material/Divider';
 import Fab from '@mui/material/Fab';
 import Grid from '@mui/material/Grid';
 import Grow from '@mui/material/Grow';
+import IconButton from '@mui/material/IconButton';
 import MUILink from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
+import MDialog from '../components/MDialog';
+
 import bio from '../utils/bio';
+import devTools from '../utils/tools';
 import photo from '../images/photo.jpg';
 import social from '../utils/social';
 
@@ -23,12 +27,44 @@ const PAPER_PROPS = {
 };
 
 class Home extends React.Component {
+  constructor() {
+    super();
+    this.handleDevTool = this.handleDevTool.bind(this);
+    this.handleCloseToolDialog = this.handleCloseToolDialog.bind(this);
+
+    this.state = {
+      toolDialogOpen: false,
+      selectedTool: {
+        title: '',
+        description: '',
+        icon: <></>,
+      },
+    };
+  }
+
   componentDidMount() {
     document.title = 'João Ferraz - Home';
     window.scrollTo(0, 0);
   }
 
+  handleDevTool(tool) {
+    this.setState({
+      toolDialogOpen: true,
+      selectedTool: {
+        title: tool.name,
+        description: tool.description,
+        icon: tool.svg,
+      },
+    });
+  }
+
+  handleCloseToolDialog() {
+    this.setState({ toolDialogOpen: false });
+  }
+
   render() {
+    const { toolDialogOpen, selectedTool } = this.state;
+
     return (
       <>
         <Grid container alignItems="flex-start" justifyContent="center" spacing={4}>
@@ -42,6 +78,7 @@ class Home extends React.Component {
               <Avatar
                 alt="Foto João Ferraz"
                 src={photo}
+                imgProps={{ sx: { pointerEvents: 'none' } }}
                 sx={{
                   border: 4,
                   borderColor: 'primary.main',
@@ -123,15 +160,36 @@ class Home extends React.Component {
 
         <Divider sx={{ my: { xs: 2, sm: 3 } }}>
           <Chip
-            label="Eu ❤"
+            label="Dev Tools"
             color="primary"
           />
         </Divider>
 
         <Grow in timeout={3000}>
           <Paper {...PAPER_PROPS}>
-            <Typography sx={{ textIndent: '1.2cm' }}>
-              Esportes, músicas, filmes, animais, jogos...
+            <Grid container spacing={2}>
+              {devTools.map((tool) => (
+                <Grid key={tool.name} item xs={4} md={2} sx={{ textAlign: 'center' }}>
+                  <IconButton
+                    color="primary"
+                    onClick={() => this.handleDevTool(tool)}
+                    sx={{
+                      height: 'calc((100vw - 96px)/3)',
+                      maxHeight: 128,
+                      maxWidth: 128,
+                      width: 'calc((100vw - 96px)/3)',
+                    }}
+                  >
+                    {tool.svg}
+                  </IconButton>
+                </Grid>
+              ))}
+            </Grid>
+
+            <Divider sx={{ mt: 2 }} />
+
+            <Typography variant="caption" color="text.disabled" align="right" sx={{ display: 'block' }}>
+              Algumas tecnologias utilizadas em seus trabalhos
             </Typography>
 
             <Button
@@ -141,7 +199,7 @@ class Home extends React.Component {
               endIcon={<NavigateNextIcon />}
               sx={{ mt: 2 }}
             >
-              Mais sobre mim
+              Mais sobre João
             </Button>
           </Paper>
         </Grow>
@@ -171,6 +229,8 @@ class Home extends React.Component {
             ))}
           </Grid>
         </Grow>
+
+        <MDialog tool={selectedTool} open={toolDialogOpen} onClose={this.handleCloseToolDialog} />
       </>
     );
   }
