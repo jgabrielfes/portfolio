@@ -28,7 +28,7 @@ class MDrawer extends React.Component {
         anchor="right"
         open={open}
         onClose={onClose}
-        sx={{ display: { xs: 'block', md: 'none' } }}
+        sx={{ display: { xs: 'block', md: 'none' }, backdropFilter: 'blur(5px)' }}
         PaperProps={{ sx: { maxWidth: 280, width: 1 } }}
       >
         <Toolbar

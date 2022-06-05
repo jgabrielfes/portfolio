@@ -3,6 +3,7 @@ import Chip from '@mui/material/Chip';
 import Divider from '@mui/material/Divider';
 import Grid from '@mui/material/Grid';
 import Grow from '@mui/material/Grow';
+import Slide from '@mui/material/Slide';
 import Typography from '@mui/material/Typography';
 import WorkCard from '../components/WorkCard';
 
@@ -17,14 +18,16 @@ class Works extends React.Component {
   render() {
     return (
       <>
-        <section>
-          <Typography variant="h3" noWrap>
-            Trabalhos
-          </Typography>
-          <Typography mb={5} color="text.secondary">
-            Confira alguns dos trabalhos/projetos que já realizei logo abaixo!
-          </Typography>
-        </section>
+        <Slide in direction="right" timeout={500}>
+          <section>
+            <Typography variant="h3" noWrap>
+              Trabalhos
+            </Typography>
+            <Typography mb={5} color="text.secondary">
+              Confira alguns dos trabalhos/projetos que já realizei logo abaixo!
+            </Typography>
+          </section>
+        </Slide>
 
         <Divider sx={{ mb: 3 }}>
           <Chip label="Trabalhos" color="primary" />

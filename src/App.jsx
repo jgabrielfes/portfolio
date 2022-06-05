@@ -86,9 +86,11 @@ class App extends React.Component {
             isLight={theme === 'light'}
             setTheme={this.handleTheme}
           />
-          <Typography align="center" variant="body2" color="text.disabled" sx={{ mb: 4, mt: 2 }}>
-            © {new Date().getFullYear()} João Ferraz. Todos os direitos reservados.
-          </Typography>
+          <section>
+            <Typography align="center" variant="body2" color="text.disabled" sx={{ mb: 4, mt: 2 }}>
+              © {new Date().getFullYear()} João Ferraz. Todos os direitos reservados.
+            </Typography>
+          </section>
         </SnackbarProvider>
       </ThemeProvider>
     );
