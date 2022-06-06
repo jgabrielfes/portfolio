@@ -83,6 +83,7 @@ class MDrawer extends React.Component {
             <ListItemButton
               component="a"
               href="João Ferraz.pdf"
+              download
               onClick={() => enqueueSnackbar('Seu download iniciará em instantes.', { variant: 'success' })}
             >
               <ListItemIcon sx={{ color: 'primary.main' }}>
