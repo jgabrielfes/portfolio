@@ -98,7 +98,9 @@ class WorkInfo extends React.Component {
                 <Typography variant="overline" sx={{ mt: 0.4 }}>
                   Repositório:
                 </Typography>
-                <Link href={workInfo.repo} target="blank">{workInfo.repo}</Link>
+                <Typography noWrap>
+                  <Link href={workInfo.repo} target="blank">{workInfo.repo}</Link>
+                </Typography>
               </Stack>
             )}
 
@@ -107,13 +109,15 @@ class WorkInfo extends React.Component {
                 <Typography variant="overline" sx={{ mt: 0.4 }}>
                   Deploy:
                 </Typography>
-                <Link href={workInfo.url} target="blank">{workInfo.url}</Link>
+                <Typography noWrap>
+                  <Link href={workInfo.url} target="blank">{workInfo.url}</Link>
+                </Typography>
               </Stack>
             )}
 
             <Stack alignItems="center" direction="row" spacing={0.5}>
-              <Typography variant="overline" sx={{ mr: 0.5, mt: 0.4 }}>
-                Dev Tools:
+              <Typography variant="overline" sx={{ mr: 0.5, mt: 0.4 }} noWrap>
+                Tecnologias utilizadas:
               </Typography>
               {workInfo.devTools.map((tool) => (
                 <Chip key={tool} label={tool} />
