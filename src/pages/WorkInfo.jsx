@@ -117,7 +117,7 @@ class WorkInfo extends React.Component {
 
             <Stack alignItems="center" direction="row" spacing={0.5}>
               <Typography variant="overline" sx={{ mr: 0.5, mt: 0.4 }} noWrap>
-                Tecnologias utilizadas:
+                Dev Tools:
               </Typography>
               {workInfo.devTools.map((tool) => (
                 <Chip key={tool} label={tool} />
