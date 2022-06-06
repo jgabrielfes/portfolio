@@ -24,6 +24,7 @@ import underlineEffect from '../utils/underlineEffect';
 class MAppBar extends React.Component {
   render() {
     const { elevate, isLight, setTheme, openDrawer, enqueueSnackbar, location } = this.props;
+    console.log(cv);
 
     return (
       <AppBar
@@ -90,7 +91,7 @@ class MAppBar extends React.Component {
               <Button
                 color="inherit"
                 component="a"
-                href={`https://jgabrielfes.vercel.app${cv}`}
+                href={cv}
                 download="João Ferraz.pdf"
                 startIcon={<DownloadIcon />}
                 onClick={() => enqueueSnackbar('Seu download iniciará em instantes.', { variant: 'success' })}
