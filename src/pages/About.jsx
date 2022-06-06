@@ -46,14 +46,20 @@ class About extends React.Component {
             </Typography>
 
             <Typography align="justify" sx={{ mt: 1, textIndent: '1.2cm' }}>
-              Até que um belo dia João criou coragem para tentar entender, de fato, o que aquelas linhas de código faziam no jogo. Com isso, pouco a pouco ele foi tomando conhecimento da lógica por trás de tudo e conseguindo
+              João criou coragem para tentar entender, de fato, o que aquelas linhas de código faziam no jogo. Com isso, pouco a pouco ele foi tomando conhecimento da lógica por trás de tudo e conseguindo
               criar os seus próprios códigos. A sensação de poder construir o que ele queria era o que mais o motivava a continuar desenvolvendo, porém não era a sua única motivação, ele também retornou aos fóruns para começar
               ajudar outras pessoas que pediam ajuda, e até mesmo abrir tópicos publicando seus trabalhos. Foi aí que ele percebeu o quanto essas comunidades o ajudaram a se tornar quem ele é hoje.
             </Typography>
 
             <Typography align="justify" sx={{ mt: 1, textIndent: '1.2cm' }}>
-              João prestou o Exame Nacional do Ensino Médio (ENEM) com o desejo de cursar Ciências da Computação em uma universidade pública que havia em sua cidade, porém com a nota que ele obteve acabou não conseguindo se matricular no curso.
-              Física era a sua segunda opção de curso, outra área que ele possuia afinidade e que acabou cursando.
+              João prestou o Exame Nacional do Ensino Médio (ENEM) com o desejo de cursar Ciências da Computação em uma universidade pública que havia em sua cidade, porém com a nota que ele obteve acabou não conseguindo se
+              matricular no curso. Física era a sua segunda opção de curso, outra área que ele possuia afinidade e que acabou cursando. No curso, por se tratar de uma licenciatura, ele teve a oportunidade de desenvolver bastante
+              as suas Soft Skills relacionadas a comunicação.
+            </Typography>
+
+            <Typography align="justify" sx={{ mt: 1, textIndent: '1.2cm' }}>
+              Hoje João se encontra na <Link href="https://www.betrybe.com/" target="blank">Trybe</Link>, estudando para se tornar um Desenvolvedor Web Full-Stack. Ele também possui o objetivo de aprender
+              sobre <Link href="https://reactnative.dev/" target="blank">React Native</Link>, uma tecnologia utilizada para criação de aplicativos para Android e iOS de forma nativa.
             </Typography>
           </Paper>
         </Grow>
