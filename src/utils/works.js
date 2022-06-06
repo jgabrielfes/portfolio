@@ -7,6 +7,7 @@ export const works = [
     description: 'Sistema CRM desenvolvido com o intuito de auxiliar a gestão do relacionamento com o cliente.',
     text: 'Descrição mais detalhada. Em construção...',
     devTools: ['React', 'Redux', 'Material UI'],
+    url: 'https://yaris-solar.vercel.app/',
   },
   {
     path: 'calcarios',

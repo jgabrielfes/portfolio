@@ -48,7 +48,7 @@ class About extends React.Component {
             <Typography align="justify" sx={{ mt: 1, textIndent: '1.2cm' }}>
               João criou coragem para tentar entender, de fato, o que aquelas linhas de código faziam no jogo. Com isso, pouco a pouco ele foi tomando conhecimento da lógica por trás de tudo e conseguindo
               criar os seus próprios códigos. A sensação de poder construir o que ele queria era o que mais o motivava a continuar desenvolvendo, porém não era a sua única motivação, ele também retornou aos fóruns para começar
-              ajudar outras pessoas que pediam ajuda, e até mesmo abrir tópicos publicando seus trabalhos. Foi aí que ele percebeu o quanto essas comunidades o ajudaram a se tornar quem ele é hoje.
+              ajudar outras pessoas, e até mesmo abrir tópicos publicando seus trabalhos. Foi aí que ele percebeu o quanto essas comunidades o ajudaram a se tornar quem ele é hoje.
             </Typography>
 
             <Typography align="justify" sx={{ mt: 1, textIndent: '1.2cm' }}>
@@ -58,7 +58,7 @@ class About extends React.Component {
             </Typography>
 
             <Typography align="justify" sx={{ mt: 1, textIndent: '1.2cm' }}>
-              Hoje João se encontra na <Link href="https://www.betrybe.com/" target="blank">Trybe</Link>, estudando para se tornar um Desenvolvedor Web Full-Stack. Ele também possui o objetivo de aprender
+              Hoje João se encontra na <Link href="https://www.betrybe.com/" target="blank">Trybe</Link>, estudando para se tornar um desenvolvedor web full-stack. Ele também possui o objetivo de aprender
               sobre <Link href="https://reactnative.dev/" target="blank">React Native</Link>, uma tecnologia utilizada para criação de aplicativos para Android e iOS de forma nativa.
             </Typography>
           </Paper>
