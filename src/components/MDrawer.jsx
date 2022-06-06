@@ -19,7 +19,6 @@ import DownloadIcon from '@mui/icons-material/Download';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
-import cv from '../docs/cv.pdf';
 import routes from '../utils/routes';
 
 class MDrawer extends React.Component {
@@ -83,8 +82,7 @@ class MDrawer extends React.Component {
           <ListItem disablePadding>
             <ListItemButton
               component="a"
-              href={cv}
-              download="João Ferraz.pdf"
+              href="João Ferraz.pdf"
               onClick={() => enqueueSnackbar('Seu download iniciará em instantes.', { variant: 'success' })}
             >
               <ListItemIcon sx={{ color: 'primary.main' }}>

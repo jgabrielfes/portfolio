@@ -17,14 +17,12 @@ import LightModeIcon from '@mui/icons-material/LightMode';
 import MenuIcon from '@mui/icons-material/Menu';
 import PortfolioIcon from './PortfolioIcon';
 
-import cv from '../docs/cv.pdf';
 import routes from '../utils/routes';
 import underlineEffect from '../utils/underlineEffect';
 
 class MAppBar extends React.Component {
   render() {
     const { elevate, isLight, setTheme, openDrawer, enqueueSnackbar, location } = this.props;
-    console.log(cv);
 
     return (
       <AppBar
@@ -91,8 +89,7 @@ class MAppBar extends React.Component {
               <Button
                 color="inherit"
                 component="a"
-                href="cv.pdf"
-                download="João Ferraz.pdf"
+                href="João Ferraz.pdf"
                 startIcon={<DownloadIcon />}
                 onClick={() => enqueueSnackbar('Seu download iniciará em instantes.', { variant: 'success' })}
                 sx={{
