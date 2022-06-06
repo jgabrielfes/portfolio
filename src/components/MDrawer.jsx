@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { withSnackbar } from 'notistack';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
@@ -23,7 +24,7 @@ import routes from '../utils/routes';
 
 class MDrawer extends React.Component {
   render() {
-    const { open, onClose, isLight, setTheme, location } = this.props;
+    const { open, onClose, isLight, setTheme, enqueueSnackbar, location } = this.props;
 
     return (
       <Drawer
@@ -80,7 +81,12 @@ class MDrawer extends React.Component {
           ))}
 
           <ListItem disablePadding>
-            <ListItemButton component="a" href={cv} download="João Ferraz.pdf">
+            <ListItemButton
+              component="a"
+              href={cv}
+              download="João Ferraz.pdf"
+              onClick={() => enqueueSnackbar('Seu download iniciará em instantes.', { variant: 'success' })}
+            >
               <ListItemIcon sx={{ color: 'primary.main' }}>
                 <DownloadIcon />
               </ListItemIcon>
@@ -125,9 +131,10 @@ MDrawer.propTypes = {
   onClose: PropTypes.func.isRequired,
   isLight: PropTypes.bool.isRequired,
   setTheme: PropTypes.func.isRequired,
+  enqueueSnackbar: PropTypes.func.isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
 };
 
-export default withRouter(MDrawer);
+export default withRouter(withSnackbar(MDrawer));

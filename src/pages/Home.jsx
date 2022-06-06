@@ -136,7 +136,7 @@ class Home extends React.Component {
           </Grow>
         </Grid>
 
-        <Divider sx={{ my: { xs: 2, sm: 3 } }}>
+        <Divider variant="middle" sx={{ my: { xs: 2, sm: 3 } }}>
           <Chip label="Bio" color="primary" />
         </Divider>
 
@@ -158,7 +158,7 @@ class Home extends React.Component {
           </Paper>
         </Grow>
 
-        <Divider sx={{ my: { xs: 2, sm: 3 } }}>
+        <Divider variant="middle" sx={{ my: { xs: 2, sm: 3 } }}>
           <Chip
             label="Dev Tools"
             color="primary"
@@ -204,7 +204,7 @@ class Home extends React.Component {
           </Paper>
         </Grow>
 
-        <Divider sx={{ my: { xs: 2, sm: 3 } }}>
+        <Divider variant="middle" sx={{ my: { xs: 2, sm: 3 } }}>
           <Chip
             label="Social – @jgabrielfes"
             color="primary"

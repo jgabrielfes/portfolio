@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
+import { withSnackbar } from 'notistack';
 import AppBar from '@mui/material/AppBar';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
@@ -22,7 +23,7 @@ import underlineEffect from '../utils/underlineEffect';
 
 class MAppBar extends React.Component {
   render() {
-    const { elevate, isLight, setTheme, openDrawer, location } = this.props;
+    const { elevate, isLight, setTheme, openDrawer, enqueueSnackbar, location } = this.props;
 
     return (
       <AppBar
@@ -92,6 +93,7 @@ class MAppBar extends React.Component {
                 href={cv}
                 download="João Ferraz.pdf"
                 startIcon={<DownloadIcon />}
+                onClick={() => enqueueSnackbar('Seu download iniciará em instantes.', { variant: 'success' })}
                 sx={{
                   '&:before': underlineEffect,
                   '&:hover:before': { bgcolor: 'primary.dark', left: 5, right: 5 },
@@ -152,9 +154,10 @@ MAppBar.propTypes = {
   isLight: PropTypes.bool.isRequired,
   setTheme: PropTypes.func.isRequired,
   openDrawer: PropTypes.func.isRequired,
+  enqueueSnackbar: PropTypes.func.isRequired,
   location: PropTypes.shape({
     pathname: PropTypes.string,
   }).isRequired,
 };
 
-export default withRouter(MAppBar);
+export default withRouter(withSnackbar(MAppBar));
