@@ -90,9 +90,8 @@ class MAppBar extends React.Component {
               <Button
                 color="inherit"
                 component="a"
-                href={cv}
+                href={`https://jgabrielfes.vercel.app${cv}`}
                 download="João Ferraz.pdf"
-                target="blank"
                 startIcon={<DownloadIcon />}
                 onClick={() => enqueueSnackbar('Seu download iniciará em instantes.', { variant: 'success' })}
                 sx={{
