@@ -33,7 +33,7 @@ class About extends React.Component {
         <Grow in timeout={1000}>
           <Paper {...PAPER_PROPS}>
             <Typography align="justify" sx={{ textIndent: '1.2cm' }}>
-              João sempre foi um rapaz viciado em jogos digitais. Quando tinha seus 14 anos passava noites acordado jogando um jogo chamado <Link href="https://www.tibia.com/" target="blank">Tibia</Link>.
+              João sempre foi um rapaz fanático em jogos digitais. Quando tinha seus 14 anos passava noites acordado jogando um jogo chamado <Link href="https://www.tibia.com/" target="blank">Tibia</Link>.
               Até que um belo dia ele descobriu que era possível fazer a criação de seu próprio servidor de Tibia, o que ele não sabia era que acabava de adentrar o mundo da promagração.
             </Typography>
 

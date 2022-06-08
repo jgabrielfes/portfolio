@@ -79,7 +79,7 @@ class Contact extends React.Component {
     axios({
       method: 'POST',
       url: process.env.REACT_APP_CONTACT_ENDPOINT_URL,
-      data: { ...form, 'g-recaptcha-response': token },
+      data: { ...form },
     }).then(() => {
       this.setState({ submitting: false, done: true });
     }).catch((e) => {
