@@ -75,15 +75,14 @@ class Contact extends React.Component {
   handleRecaptcha(token) {
     const { enqueueSnackbar } = this.props;
     const { form } = this.state;
-    this.setState({ submitting: true });
     axios({
       method: 'POST',
       url: process.env.REACT_APP_CONTACT_ENDPOINT_URL,
-      data: { ...form },
+      data: { ...form, 'g-recaptcha-response': token },
     }).then(() => {
       this.setState({ submitting: false, done: true });
-    }).catch((e) => {
-      console.log(e);
+    }).catch(() => {
+      this.recaptcha.current.reset();
       enqueueSnackbar('Ops! Houve um erro durante o envio de sua mensagem.', { variant: 'error' });
       this.setState({ submitting: false });
     });
@@ -97,6 +96,7 @@ class Contact extends React.Component {
     if (FORM_INPUT_OPTIONS.some(({ name, errorCondition }) => errorCondition(form[name]))) {
       enqueueSnackbar('Preencha o formulário corretamente.', { variant: 'error' });
     } else {
+      this.setState({ submitting: true });
       this.recaptcha.current.execute();
     }
   }
