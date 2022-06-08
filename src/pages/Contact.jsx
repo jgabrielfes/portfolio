@@ -75,17 +75,19 @@ class Contact extends React.Component {
   handleRecaptcha(token) {
     const { enqueueSnackbar } = this.props;
     const { form } = this.state;
-    axios({
-      method: 'POST',
-      url: process.env.REACT_APP_CONTACT_ENDPOINT_URL,
-      data: { ...form, 'g-recaptcha-response': token },
-    }).then(() => {
-      this.setState({ submitting: false, done: true });
-    }).catch(() => {
-      this.recaptcha.current.reset();
-      enqueueSnackbar('Ops! Houve um erro durante o envio de sua mensagem.', { variant: 'error' });
-      this.setState({ submitting: false });
-    });
+    if (token) {
+      axios({
+        method: 'POST',
+        url: process.env.REACT_APP_CONTACT_ENDPOINT_URL,
+        data: { ...form, 'g-recaptcha-response': token },
+      }).then(() => {
+        this.setState({ submitting: false, done: true });
+      }).catch(() => {
+        this.recaptcha.current.reset();
+        enqueueSnackbar('Ops! Houve um erro durante o envio de sua mensagem.', { variant: 'error' });
+        this.setState({ submitting: false });
+      });
+    }
   }
 
   handleSubmit(event) {
