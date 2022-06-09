@@ -16,7 +16,7 @@ export const works = [
     image: require('../images/calcarios.jpg'),
     description: 'Sistema para controle de gestão elaborado a partir de uma planilha.',
     text: 'Descrição mais detalhada. Em construção...',
-    devTools: ['React', 'Redux', 'Material UI'],
+    devTools: ['React', 'Redux', 'Material UI', 'Firebase'],
   },
 ];
 
