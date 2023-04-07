@@ -176,7 +176,7 @@ class Contact extends React.Component {
               ref={this.recaptcha}
               theme={localStorage.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')}
               size="invisible"
-              sitekey="6Lf9qkwgAAAAAOfc3iok0QqRCwXqg_w8D_Gw3lL6"
+              sitekey={process.env.REACT_APP_RECAPTCHA_KEY}
               onChange={this.handleRecaptcha}
             />
           </>
