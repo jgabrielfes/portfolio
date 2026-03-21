@@ -44,6 +44,7 @@ alwaysApply: true
 
 ## UI e layout
 
+- **Responsivo**: todo acréscimo de interface deve ser **responsivo** — mobile-first, breakpoints Tailwind (`sm:`, `md:`, `lg:`), conteúdo com `max-w-*` / padding horizontal coerente (`px-4 sm:px-6`), grids ou flex que refaçam o layout sem overflow horizontal nem texto cortado; evitar larguras fixas em `px` salvo caso pontual (ícones, hairlines).
 - Tema: tokens em `globals.css` (`:root` / `.dark`); não hardcodar cores soltas se existir token.
 - **Secções com faixa de fundo** (ex. Habilidades, Formação): `<section class="w-full border-t … bg-muted/20">` + filho `mx-auto max-w-6xl px-4 sm:px-6` — fundo **full-bleed**, conteúdo alinhado.
 - **SkillsMarquee**: várias cópias da lista + `translateX(calc(-100% / var(--marquee-segments)))` em `globals.css`; manter TS e CSS sincronizados.

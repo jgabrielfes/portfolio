@@ -9,7 +9,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { EmployerImpactStats } from "@/components/sections/employer-impact-stats";
 import {
+  employerImpactBlocks,
   recruiterAtAGlance,
   resumePdfUrl,
   valuePropositions,
@@ -48,6 +50,8 @@ export function RecruiterSection() {
             </Reveal>
           ))}
         </div>
+
+        <EmployerImpactStats blocks={employerImpactBlocks} />
 
         <div className="grid gap-4 md:grid-cols-2">
           {valuePropositions.map((vp, index) => (

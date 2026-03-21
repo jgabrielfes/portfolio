@@ -43,10 +43,11 @@ export const metadata: Metadata = {
     description: defaultSiteDescription,
     images: [
       {
-        url: "/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "João Ferraz — Desenvolvedor full-stack sênior",
+        url: "/logo.jpg",
+        width: 1024,
+        height: 1045,
+        alt: "João Ferraz — identidade visual do portfólio",
+        type: "image/jpeg",
       },
     ],
   },
@@ -54,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "João Ferraz — Desenvolvedor Full-Stack",
     description: defaultSiteDescription,
-    images: ["/opengraph-image"],
+    images: ["/logo.jpg"],
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],

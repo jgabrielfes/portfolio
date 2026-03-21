@@ -22,6 +22,72 @@ export const recruiterAtAGlance = [
   },
 ] as const;
 
+/** Métricas com animação de contagem na secção para recrutadores (valores editáveis). */
+export type ImpactMetric =
+  | {
+      kind: "int";
+      value: number;
+      suffix?: string;
+      label: string;
+    }
+  | {
+      kind: "millions";
+      /** Valor em milhões (ex.: 2,5 → anima até "2,5M"). */
+      value: number;
+      suffix?: string;
+      label: string;
+    };
+
+export type EmployerImpactBlock = {
+  id: string;
+  company: string;
+  subtitle: string;
+  period: string;
+  metrics: readonly ImpactMetric[];
+  caption: string;
+};
+
+export const employerImpactBlocks: readonly EmployerImpactBlock[] = [
+  {
+    id: "bonifiq-impact",
+    company: "BonifiQ",
+    subtitle: "Ecossistema Engage",
+    period: "2025 — 2026",
+    metrics: [
+      {
+        kind: "int",
+        value: 7,
+        label: "aplicações simultâneas com React + Vite em produção",
+      },
+      {
+        kind: "int",
+        value: 550,
+        suffix: "+",
+        label: "e-commerces atendidos pelos produtos distribuídos",
+      },
+    ],
+    caption:
+      "Entregas em escala B2B: soluções acessíveis por milhões de usuários finais nos canais dos clientes.",
+  },
+  {
+    id: "umode-impact",
+    company: "uMode",
+    subtitle: "Integrações & uConnect",
+    period: "2023 — 2025",
+    metrics: [
+      {
+        kind: "millions",
+        value: 2.5,
+        suffix: "+",
+        label:
+          "registros integrados por dia em pico (ordem de grandeza do volume diário)",
+      },
+    ],
+    caption:
+      "Pipeline de integração movimentando milhões de dados por dia, com foco em confiabilidade entre sistemas.",
+  },
+] as const;
+
 export const valuePropositions = [
   {
     title: "Ponte entre produto, front e back-end",
@@ -76,9 +142,9 @@ export const featuredProjects: readonly FeaturedProject[] = [
     period: "2025 — 2026",
     summary:
       "Coordenação técnica de um time de alto impacto e manutenção de um conjunto amplo de aplicações front-end, com entregas contínuas em .NET no back-end.",
-    stack: ["React", "TypeScript", ".NET", "C#", "Arquitetura front"],
+    stack: ["React", "TypeScript", "Vite", ".NET", "C#", "Arquitetura front"],
     highlights: [
-      "Mais de 6 aplicações React + TypeScript em produção.",
+      "7 aplicações simultâneas com React + Vite em produção, em escala B2B.",
       "Mentoria e evolução técnica de desenvolvedores front-end.",
     ],
   },

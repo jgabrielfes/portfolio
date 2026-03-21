@@ -12,7 +12,7 @@ Esse ficheiro usa `alwaysApply: true`, por isso o **Cursor** injeta o contexto e
 | Node 24, yarn, nvm | `.nvmrc` + regra `portfolio.mdc` |
 | Conventional Commits | `portfolio.mdc` |
 | Next.js 16 (ler docs locais) | `portfolio.mdc` |
-| Pastas, conteúdo, UI (full-bleed, marquee) | `portfolio.mdc` |
+| Pastas, conteúdo, UI (full-bleed, marquee, **responsivo**) | `portfolio.mdc` |
 | Respostas ao utilizador | Português (PT-BR) |
 
 Se editar convenções do projeto, atualize **`.cursor/rules/portfolio.mdc`** e, se quiser, este resumo.

@@ -33,7 +33,7 @@ export const experience = [
     period: "Jan 2025 — Mar 2026",
     highlights: [
       "Liderança técnica da equipe Engage, focada em inovação e novos desenvolvimentos de alto impacto.",
-      "Arquitetura e manutenção de mais de 6 aplicações em React + TypeScript (widgets, checkouts, editores e landing pages), com foco em performance e escalabilidade.",
+      "Arquitetura e manutenção de 7 aplicações em React + TypeScript + Vite (widgets, checkouts, editores e landing pages), com foco em performance e escalabilidade.",
       "Atuação integral no back-end em .NET, entregando features completas e apoiando a evolução técnica de desenvolvedores front-end.",
     ],
   },
