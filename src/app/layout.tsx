@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   },
   description:
     "João Ferraz — desenvolvedor full-stack sênior (FCamara, consultoria RD, Vite). Microsserviços, NestJS, .NET, React, uConnect. Contato e experiência.",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+  },
 };
 
 export default function RootLayout({
