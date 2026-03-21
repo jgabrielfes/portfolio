@@ -17,10 +17,24 @@ import {
 import { contact } from "@/content/portfolio";
 import { featuredProjects } from "@/content/recruiter";
 
+const projetosDescription =
+  "Cases de João Ferraz: integrações RD, Engage BonifiQ, uConnect, CRM — stack, contexto e impacto em alto nível para recrutadores e tech leads.";
+
 export const metadata: Metadata = {
   title: "Projetos e cases",
-  description:
-    "Cases de João Ferraz: integrações RD, Engage BonifiQ, uConnect, CRM — stack, contexto e impacto em alto nível para recrutadores e tech leads.",
+  description: projetosDescription,
+  alternates: { canonical: "/projetos" },
+  openGraph: {
+    title: "Projetos e cases",
+    description: projetosDescription,
+    url: "/projetos",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Projetos e cases | João Ferraz",
+    description: projetosDescription,
+  },
 };
 
 export default function ProjetosPage() {

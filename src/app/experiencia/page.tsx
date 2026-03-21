@@ -8,10 +8,24 @@ import { EducationSection } from "@/components/sections/education-section";
 import { ExperienceSection } from "@/components/sections/experience-section";
 import { Button } from "@/components/ui/button";
 
+const experienciaDescription =
+  "Histórico completo de João Ferraz: FCamara (RD, Vite), BonifiQ, uMode, HRP, Yaris Solar, Botfy — full-stack sênior, uConnect, NestJS, .NET e React.";
+
 export const metadata: Metadata = {
   title: "Experiência profissional",
-  description:
-    "Histórico completo de João Ferraz: FCamara (RD, Vite), BonifiQ, uMode, HRP, Yaris Solar, Botfy — full-stack sênior, uConnect, NestJS, .NET e React.",
+  description: experienciaDescription,
+  alternates: { canonical: "/experiencia" },
+  openGraph: {
+    title: "Experiência profissional",
+    description: experienciaDescription,
+    url: "/experiencia",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Experiência profissional | João Ferraz",
+    description: experienciaDescription,
+  },
 };
 
 export default function ExperienciaPage() {

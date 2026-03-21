@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import { Figtree, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { PersonJsonLd } from "@/components/seo/person-json-ld";
+import {
+  defaultSiteDescription,
+  getSiteUrl,
+  siteKeywords,
+} from "@/config/site";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 
@@ -11,13 +17,45 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = getSiteUrl();
+
 export const metadata: Metadata = {
+  metadataBase: siteUrl,
   title: {
     default: "João Ferraz — Desenvolvedor Full-Stack",
     template: "%s | João Ferraz",
   },
-  description:
-    "João Ferraz — desenvolvedor full-stack sênior (FCamara, consultoria RD, Vite). Microsserviços, NestJS, .NET, React, uConnect. Contato e experiência.",
+  description: defaultSiteDescription,
+  applicationName: "João Ferraz — Portfólio",
+  authors: [{ name: "João Ferraz", url: siteUrl.href }],
+  creator: "João Ferraz",
+  keywords: [...siteKeywords],
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_BR",
+    url: siteUrl.href,
+    siteName: "João Ferraz",
+    title: "João Ferraz — Desenvolvedor Full-Stack",
+    description: defaultSiteDescription,
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "João Ferraz — Desenvolvedor full-stack sênior",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "João Ferraz — Desenvolvedor Full-Stack",
+    description: defaultSiteDescription,
+    images: ["/opengraph-image"],
+  },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
@@ -39,6 +77,7 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-full flex flex-col">
+        <PersonJsonLd />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
