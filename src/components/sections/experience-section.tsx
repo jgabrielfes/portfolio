@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { getMessages, getTranslations } from "next-intl/server";
 
+import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/landing/reveal";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -10,19 +11,29 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { experience } from "@/content/portfolio";
 import { cn } from "@/lib/utils";
+
+type ExperienceJob = {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  highlights: readonly string[];
+};
 
 type ExperienceSectionProps = {
   variant: "preview" | "full";
   className?: string;
 };
 
-export function ExperienceSection({
+export async function ExperienceSection({
   variant,
   className,
 }: ExperienceSectionProps) {
   const isPreview = variant === "preview";
+  const t = await getTranslations("ExperienceSection");
+  const messages = await getMessages();
+  const list = messages.ExperienceJobs as ExperienceJob[];
 
   return (
     <section
@@ -35,17 +46,15 @@ export function ExperienceSection({
     >
       <Reveal className="mb-10 max-w-2xl">
         <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Experiência profissional
+          {t("heading")}
         </h2>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-          {isPreview
-            ? "Resumo das últimas posições. Na página expandida você encontra o detalhamento completo, pronto para compartilhar."
-            : "Histórico completo conforme currículo — liderança técnica, arquitetura e entregas em produto."}
+          {isPreview ? t("leadPreview") : t("leadFull")}
         </p>
       </Reveal>
 
       <div className="grid gap-6">
-        {experience.map((job, index) => {
+        {list.map((job, index) => {
           const bullets =
             isPreview ? job.highlights.slice(0, 2) : [...job.highlights];
           const more = isPreview ? job.highlights.length - bullets.length : 0;
@@ -79,10 +88,7 @@ export function ExperienceSection({
                     </ul>
                     {more > 0 && (
                       <p className="mt-3 text-xs text-muted-foreground">
-                        +{more}{" "}
-                        {more === 1
-                          ? "realização adicional neste cargo"
-                          : "realizações adicionais neste cargo"}
+                        {t(more === 1 ? "moreOne" : "moreMany", { count: more })}
                       </p>
                     )}
                   </CardContent>
@@ -96,7 +102,7 @@ export function ExperienceSection({
       {isPreview && (
         <Reveal className="mt-10 flex justify-center" delayMs={200}>
           <Button size="lg" variant="outline" asChild>
-            <Link href="/experiencia">Ver experiência completa</Link>
+            <Link href="/experiencia">{t("viewFull")}</Link>
           </Button>
         </Reveal>
       )}

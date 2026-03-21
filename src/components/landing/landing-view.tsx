@@ -1,6 +1,7 @@
 import { ArrowDown, Github, Layers, Linkedin, Mail, Phone, Sparkles } from "lucide-react";
-import Link from "next/link";
+import { getMessages, getTranslations } from "next-intl/server";
 
+import { Link } from "@/i18n/navigation";
 import { PageBackdrop } from "@/components/layout/page-backdrop";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -12,13 +13,14 @@ import { SkillsGridSection } from "@/components/sections/skills-grid-section";
 import { SkillsMarquee } from "@/components/sections/skills-marquee";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import {
-  aboutNarrative,
-  contact,
-  professionalSummary,
-} from "@/content/portfolio";
+import { contact } from "@/content/portfolio";
 
-export function LandingView() {
+export async function LandingView() {
+  const tHome = await getTranslations("Home");
+  const tPortfolio = await getTranslations("Portfolio");
+  const messages = await getMessages();
+  const stackMarquee = messages.StackMarquee as string[];
+
   return (
     <div className="relative flex min-h-full flex-1 flex-col">
       <PageBackdrop />
@@ -33,7 +35,7 @@ export function LandingView() {
             <div className="animate-in fade-in slide-in-from-bottom-4 fill-mode-both duration-700 ease-out">
               <Badge variant="secondary" className="gap-1.5 rounded-full pl-2 pr-2.5">
                 <Sparkles className="size-3 text-primary" aria-hidden />
-                Full-stack sênior · FCamara / RD
+                {tHome("badge")}
               </Badge>
             </div>
 
@@ -41,11 +43,11 @@ export function LandingView() {
               <h1 className="animate-in fade-in slide-in-from-bottom-5 fill-mode-both font-heading text-4xl font-semibold leading-[1.05] tracking-tight text-foreground delay-100 duration-700 ease-out sm:text-5xl lg:text-6xl">
                 João Ferraz
                 <span className="mt-2 block text-balance text-2xl font-medium text-muted-foreground sm:text-3xl lg:text-4xl">
-                  microsserviços, integrações e times que entregam produto.
+                  {tHome("headlineSub")}
                 </span>
               </h1>
               <p className="animate-in fade-in zoom-in-95 fill-mode-both max-w-xl text-pretty text-sm leading-relaxed text-muted-foreground delay-200 duration-700 ease-out sm:text-base">
-                {professionalSummary}
+                {tPortfolio("professionalSummary")}
               </p>
             </div>
 
@@ -57,7 +59,7 @@ export function LandingView() {
                   rel="noopener noreferrer"
                 >
                   <Linkedin className="size-4 shrink-0" />
-                  LinkedIn
+                  {tHome("linkedin")}
                 </a>
               </Button>
               <Button
@@ -72,7 +74,7 @@ export function LandingView() {
                   rel="noopener noreferrer"
                 >
                   <Github className="size-4 shrink-0" />
-                  GitHub
+                  {tHome("github")}
                 </a>
               </Button>
               <Button
@@ -81,7 +83,7 @@ export function LandingView() {
                 className="min-h-10 w-[calc(50%-0.25rem)] min-[380px]:w-auto sm:w-auto"
                 asChild
               >
-                <Link href="/projetos">Cases</Link>
+                <Link href="/projetos">{tHome("cases")}</Link>
               </Button>
               <Button
                 size="lg"
@@ -89,7 +91,7 @@ export function LandingView() {
                 className="min-h-10 w-[calc(50%-0.25rem)] min-[380px]:w-auto sm:w-auto"
                 asChild
               >
-                <Link href="/experiencia">Experiência</Link>
+                <Link href="/experiencia">{tHome("experience")}</Link>
               </Button>
               <Button
                 size="lg"
@@ -98,7 +100,7 @@ export function LandingView() {
                 asChild
               >
                 <a href="#sobre">
-                  Sobre mim
+                  {tHome("aboutMe")}
                   <ArrowDown className="size-4 shrink-0 opacity-70" />
                 </a>
               </Button>
@@ -115,18 +117,16 @@ export function LandingView() {
               <div className="absolute inset-[12%] flex flex-col justify-between rounded-[1.75rem] p-6 sm:p-7">
                 <div className="flex items-start justify-between gap-3">
                   <span className="font-mono text-[0.65rem] font-medium uppercase tracking-[0.2em] text-muted-foreground">
-                    em produção
+                    {tHome("orbLabel")}
                   </span>
                   <Layers className="size-5 text-primary" />
                 </div>
                 <div className="space-y-3">
                   <p className="font-heading text-lg font-semibold leading-snug text-foreground">
-                    FCamara · RD · Vite
+                    {tHome("orbTitle")}
                   </p>
                   <p className="text-xs leading-relaxed text-muted-foreground">
-                    Painéis com dados de integração para a Raia Drogasil, front
-                    com Vite e alinhamento fino de contratos de API com o
-                    back-end.
+                    {tHome("orbBody")}
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -141,14 +141,14 @@ export function LandingView() {
           <a
             href="#sobre"
             className="animate-in fade-in fill-mode-both absolute bottom-6 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-1 text-xs text-muted-foreground delay-500 duration-1000 ease-out lg:flex"
-            aria-label="Rolar para a seção Sobre"
+            aria-label={tHome("scrollToAbout")}
           >
-            <span className="font-mono uppercase tracking-widest">scroll</span>
+            <span className="font-mono uppercase tracking-widest">{tHome("scroll")}</span>
             <ArrowDown className="size-4 motion-safe:animate-bounce" />
           </a>
         </section>
 
-        <SkillsMarquee />
+        <SkillsMarquee items={stackMarquee} />
 
         <section
           id="sobre"
@@ -156,10 +156,10 @@ export function LandingView() {
         >
           <Reveal className="mx-auto max-w-3xl text-center">
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Sobre
+              {tHome("aboutHeading")}
             </h2>
             <p className="mt-4 text-pretty text-sm leading-relaxed text-muted-foreground sm:text-base">
-              {aboutNarrative}
+              {tPortfolio("aboutNarrative")}
             </p>
           </Reveal>
         </section>
@@ -179,11 +179,10 @@ export function LandingView() {
           <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
             <Reveal className="mx-auto w-full max-w-3xl rounded-2xl border border-border/70 bg-card/80 p-6 text-center shadow-sm ring-1 ring-foreground/5 backdrop-blur-sm sm:p-8 md:p-10">
               <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-4xl">
-                Vamos conversar?
+                {tHome("contactHeading")}
               </h2>
               <p className="mx-auto mt-4 max-w-lg text-pretty text-sm text-muted-foreground sm:text-base">
-                Projetos, liderança técnica ou parcerias — fico à disposição pelo
-                e-mail, telefone ou redes.
+                {tHome("contactLead")}
               </p>
               <div className="mt-6 flex flex-col items-stretch gap-2 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3">
                 <Button
@@ -224,7 +223,7 @@ export function LandingView() {
                     rel="noopener noreferrer"
                   >
                     <Linkedin className="size-4 shrink-0" />
-                    LinkedIn
+                    {tHome("linkedin")}
                   </a>
                 </Button>
                 <Button
@@ -239,7 +238,7 @@ export function LandingView() {
                     rel="noopener noreferrer"
                   >
                     <Github className="size-4 shrink-0" />
-                    GitHub
+                    {tHome("github")}
                   </a>
                 </Button>
               </div>

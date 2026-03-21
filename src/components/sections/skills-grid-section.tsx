@@ -1,9 +1,19 @@
+import { getMessages, getTranslations } from "next-intl/server";
+
 import { Reveal } from "@/components/landing/reveal";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { skillsByCategory } from "@/content/portfolio";
 
-export function SkillsGridSection() {
+type SkillGroup = {
+  category: string;
+  items: readonly string[];
+};
+
+export async function SkillsGridSection() {
+  const t = await getTranslations("Skills");
+  const messages = await getMessages();
+  const skillsByCategory = messages.SkillsByCategory as SkillGroup[];
+
   return (
     <section
       id="stack"
@@ -12,11 +22,10 @@ export function SkillsGridSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mb-10 max-w-xl">
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Habilidades técnicas
+            {t("heading")}
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Visão agrupada do currículo — linguagens, arquitetura, dados, cloud e
-            como trabalho em time.
+            {t("lead")}
           </p>
         </Reveal>
 

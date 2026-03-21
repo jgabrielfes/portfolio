@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useLocale } from "next-intl";
 
 import { Reveal } from "@/components/landing/reveal";
 import {
@@ -101,10 +102,12 @@ function AnimatedMillions({
   end,
   suffix,
   className,
+  locale,
 }: {
   end: number;
   suffix?: string;
   className?: string;
+  locale: string;
 }) {
   const ref = React.useRef<HTMLSpanElement>(null);
   const started = useInViewStart(ref);
@@ -135,7 +138,10 @@ function AnimatedMillions({
     return () => cancelAnimationFrame(frameId);
   }, [started, end, reducedMotion]);
 
-  const formatted = value.toFixed(1).replace(".", ",");
+  const formatted = new Intl.NumberFormat(locale, {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(value);
 
   return (
     <span ref={ref} className={cn("tabular-nums tracking-tight", className)}>
@@ -144,14 +150,24 @@ function AnimatedMillions({
   );
 }
 
-function MetricRow({ metric }: { metric: ImpactMetric }) {
+function MetricRow({
+  metric,
+  locale,
+}: {
+  metric: ImpactMetric;
+  locale: string;
+}) {
   return (
     <div className="grid grid-cols-1 gap-2 border-b border-border/50 py-4 last:border-b-0 last:pb-0 first:pt-0 sm:grid-cols-[minmax(4.75rem,auto)_1fr] sm:items-start sm:gap-x-4 sm:gap-y-0">
       <div className="font-heading text-3xl font-semibold leading-none tracking-tight text-foreground sm:min-w-21 sm:text-4xl md:min-w-23">
         {metric.kind === "int" ? (
           <AnimatedInt end={metric.value} suffix={metric.suffix} />
         ) : (
-          <AnimatedMillions end={metric.value} suffix={metric.suffix} />
+          <AnimatedMillions
+            end={metric.value}
+            suffix={metric.suffix}
+            locale={locale}
+          />
         )}
       </div>
       <p className="max-w-prose text-sm leading-snug text-muted-foreground sm:text-base sm:leading-relaxed">
@@ -166,6 +182,8 @@ export function EmployerImpactStats({
 }: {
   blocks: readonly EmployerImpactBlock[];
 }) {
+  const locale = useLocale();
+
   return (
     <div className="mb-12 grid gap-4 md:grid-cols-2">
       {blocks.map((block, index) => (
@@ -183,7 +201,7 @@ export function EmployerImpactStats({
               </div>
               <div className="border-t border-border/60 pt-1">
                 {block.metrics.map((m) => (
-                  <MetricRow key={m.label} metric={m} />
+                  <MetricRow key={m.label} metric={m} locale={locale} />
                 ))}
               </div>
               <p className="text-xs leading-relaxed text-muted-foreground sm:text-sm">

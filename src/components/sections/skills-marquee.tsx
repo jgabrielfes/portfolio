@@ -1,16 +1,21 @@
 import type { CSSProperties } from "react";
 
 import { Badge } from "@/components/ui/badge";
-import { stackMarquee } from "@/content/portfolio";
 import { cn } from "@/lib/utils";
 
 /** Quantas cópias da lista em sequência — precisa bater com `--marquee-segments` em `globals.css`. */
 const MARQUEE_SEGMENTS = 6;
 
-export function SkillsMarquee({ className }: { className?: string }) {
-  const items = Array.from({ length: MARQUEE_SEGMENTS }, (_, copy) =>
-    stackMarquee.map((label, i) => ({ label, key: `${copy}-${i}` }))
+type SkillsMarqueeProps = {
+  items: readonly string[];
+  className?: string;
+};
+
+export function SkillsMarquee({ items, className }: SkillsMarqueeProps) {
+  const track = Array.from({ length: MARQUEE_SEGMENTS }, (_, copy) =>
+    items.map((label, i) => ({ label, key: `${copy}-${i}` }))
   ).flat();
+
   return (
     <div
       className={cn(
@@ -27,7 +32,7 @@ export function SkillsMarquee({ className }: { className?: string }) {
         }
         aria-hidden
       >
-        {items.map(({ label, key }) => (
+        {track.map(({ label, key }) => (
           <Badge
             key={key}
             variant="outline"

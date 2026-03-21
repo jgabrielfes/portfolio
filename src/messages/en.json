@@ -1,0 +1,401 @@
+{
+  "Meta": {
+    "titleDefault": "João Ferraz — Full-Stack Developer",
+    "titleTemplate": "{title} | João Ferraz",
+    "applicationName": "João Ferraz — Portfolio",
+    "description": "Portfolio of João Ferraz — senior full-stack developer (FCamara, RD consulting, Vite). Microservices, API contracts, React, NestJS, .NET, and technical leadership.",
+    "ogTitle": "João Ferraz — Full-Stack Developer",
+    "ogImageAlt": "João Ferraz — portfolio visual identity",
+    "twitterTitle": "João Ferraz — Full-Stack Developer",
+    "keywords": [
+      "João Ferraz",
+      "full-stack developer",
+      "senior full-stack",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Vite",
+      "NestJS",
+      ".NET",
+      "microservices",
+      "integrations",
+      "API",
+      "FCamara",
+      "tech lead"
+    ]
+  },
+  "Nav": {
+    "home": "Home",
+    "about": "About",
+    "stack": "Stack",
+    "experience": "Experience",
+    "education": "Education",
+    "recruiters": "Recruiters",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Header": {
+    "ctaFull": "Get in touch",
+    "ctaShort": "Contact",
+    "navAria": "Main"
+  },
+  "Footer": {
+    "experience": "Experience",
+    "projects": "Projects",
+    "sourceOnGitHub": "Source on GitHub",
+    "copyright": "© {year} João Ferraz.",
+    "socialGithub": "GitHub",
+    "socialLinkedin": "LinkedIn",
+    "socialEmail": "Email"
+  },
+  "MobileNav": {
+    "openMenu": "Open navigation menu",
+    "sheetTitle": "Navigation"
+  },
+  "Theme": {
+    "toggleAria": "Application theme",
+    "appearance": "Appearance",
+    "system": "System",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "LocaleSwitcher": {
+    "aria": "Site language",
+    "label": "Language"
+  },
+  "Home": {
+    "badge": "Senior full-stack · FCamara / RD",
+    "headlineSub": "microservices, integrations, and teams that ship product.",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "cases": "Case studies",
+    "experience": "Experience",
+    "aboutMe": "About me",
+    "orbLabel": "in production",
+    "orbTitle": "FCamara · RD · Vite",
+    "orbBody": "Integration data dashboards for Raia Drogasil, Vite front end, and tight alignment of API contracts with the backend.",
+    "scrollToAbout": "Scroll to About section",
+    "scroll": "scroll",
+    "aboutHeading": "About",
+    "contactHeading": "Let’s talk?",
+    "contactLead": "Projects, technical leadership, or partnerships — reach me by email, phone, or social."
+  },
+  "Skills": {
+    "heading": "Technical skills",
+    "lead": "Grouped view from my résumé — languages, architecture, data, cloud, and how I work with teams."
+  },
+  "ExperienceSection": {
+    "heading": "Professional experience",
+    "leadPreview": "Summary of recent roles. On the expanded page you’ll find the full detail, ready to share.",
+    "leadFull": "Full history as on my CV — technical leadership, architecture, and product delivery.",
+    "moreOne": "+{count} more achievement in this role",
+    "moreMany": "+{count} more achievements in this role",
+    "viewFull": "View full experience"
+  },
+  "EducationSection": {
+    "heading": "Education & languages",
+    "lead": "Academic foundation and ongoing learning in technology.",
+    "languagesTitle": "Languages"
+  },
+  "RecruiterSection": {
+    "heading": "For recruiters",
+    "lead": "A concise snapshot of my profile and the kind of impact I usually drive in a squad — before diving into the full résumé or case studies.",
+    "viewCases": "View case studies & projects",
+    "fullTimeline": "Full timeline",
+    "downloadCv": "Download CV (PDF)",
+    "highlightsLabel": "Highlights"
+  },
+  "ExperiencePage": {
+    "title": "Professional experience",
+    "description": "Full history of João Ferraz: FCamara (RD, Vite), BonifiQ, uMode, HRP, Yaris Solar, Botfy — senior full-stack, uConnect, NestJS, .NET, and React.",
+    "backHome": "← Back to home",
+    "intro": "Dedicated résumé page: experience by company, with every achievement listed. Use the menu links to jump between sections on the main site."
+  },
+  "ProjectsPage": {
+    "title": "Projects & case studies",
+    "description": "João Ferraz case studies: RD integrations, BonifiQ Engage, uConnect, CRM — stack, context, and high-level impact for recruiters and tech leads.",
+    "backHome": "← Back to home",
+    "lead": "High-level view of relevant deliveries — without exposing confidential client details. To go deeper technically, <linkedin>message me on LinkedIn</linkedin> or use the <contact>contact</contact> on the site."
+  },
+  "NotFoundPage": {
+    "title": "Page not found",
+    "description": "This address does not exist on João Ferraz’s portfolio. Use home, projects, or contact to continue.",
+    "badge": "Page not found",
+    "heading": "This path doesn’t exist here",
+    "body": "If you followed an old link or mistyped the URL, use the shortcuts below — contact, experience, and case studies are still in the same places.",
+    "backHome": "Back to home",
+    "projects": "Projects & case studies",
+    "experience": "Experience",
+    "linkedin": "LinkedIn"
+  },
+  "PersonJsonLd": {
+    "jobTitle": "Senior Full-Stack Developer",
+    "knowsAbout": [
+      "Full-stack development",
+      "Microservices",
+      "Systems integration",
+      "TypeScript",
+      "React",
+      "Node.js",
+      "NestJS",
+      ".NET"
+    ]
+  },
+  "Portfolio": {
+    "professionalSummary": "Senior full-stack developer with solid experience in microservices architecture, technical leadership, and mentoring. Currently at FCamara focused on front end (Vite) and consulting for Raia Drogasil (RD) on dashboards fed by integration data and API contract alignment with the backend. Strong in Node.js (TypeScript/NestJS), .NET, and Ruby on Rails; background with uConnect (uMode) and technical leadership on Engage (BonifiQ). Degree in Physics (licentiate).",
+    "aboutNarrative": "I work at FCamara as a senior full-stack developer, emphasizing Vite on the front end and consulting for Raia Drogasil (RD) — dashboards powered by integration data. I lean on backend experience to collaborate with the team, define API contracts, and keep delivery coherent. Previously BonifiQ (Engage, .NET/React) and uMode (uConnect, NestJS). Physics degree from UESB and full-stack web development from Trybe."
+  },
+  "ExperienceJobs": [
+    {
+      "id": "fcamara",
+      "company": "FCamara",
+      "role": "Senior Full-Stack Developer",
+      "period": "Mar 2026 — Present",
+      "highlights": [
+        "Front-end focused work on a Vite stack, with strong backend foundations to align with the team, support API changes, and formalize contracts across layers.",
+        "Consulting for Raia Drogasil (RD): building dashboards that surface integration data, prioritizing clarity, reliability, and fit with business flows."
+      ]
+    },
+    {
+      "id": "bonifiq",
+      "company": "BonifiQ",
+      "role": "Full-Stack Developer",
+      "period": "Jan 2025 — Mar 2026",
+      "highlights": [
+        "Technical leadership for the Engage team, focused on innovation and high-impact greenfield work.",
+        "Architecture and maintenance of 7 React + TypeScript + Vite apps (widgets, checkouts, editors, landing pages) with a focus on performance and scalability.",
+        "End-to-end backend work in .NET, shipping full features and supporting front-end developers’ technical growth."
+      ]
+    },
+    {
+      "id": "umode",
+      "company": "uMode",
+      "role": "Integrations Lead (Mid-level)",
+      "period": "Jan 2023 — Jan 2025",
+      "highlights": [
+        "Conception and architecture of the uConnect microservice: dynamic integrations driven by database configuration, streamlining data flow across the platform.",
+        "Led migration from a Serverless setup to a robust NestJS architecture.",
+        "Managed the integrations area, ensuring data integrity across multiple systems."
+      ]
+    },
+    {
+      "id": "hrp",
+      "company": "HRP Serviços",
+      "role": "Front-End Developer",
+      "period": "Dec 2022 — Jan 2023",
+      "highlights": [
+        "Implemented features and backend integration in a React app, improving the UI and data-flow consistency."
+      ]
+    },
+    {
+      "id": "yaris",
+      "company": "Yaris Solar",
+      "role": "Full-Stack Developer",
+      "period": "Oct 2022 — Dec 2022",
+      "highlights": [
+        "CRM platform development: full-stack architecture with React on the front end and NestJS on the back end, focused on scalability and sales processes."
+      ]
+    },
+    {
+      "id": "botfy",
+      "company": "Botfy",
+      "role": "Front-End Developer",
+      "period": "Jul 2022 — Oct 2022",
+      "highlights": [
+        "Built and finished React front-end modules, participating in the full delivery cycle."
+      ]
+    }
+  ],
+  "EducationItems": [
+    {
+      "institution": "Trybe",
+      "title": "Full-Stack Web Development",
+      "period": "Nov 2021 — Nov 2022",
+      "description": "Over 1,500 hours in software development, front end, back end, computer science, software engineering, agile methods, and soft skills."
+    },
+    {
+      "institution": "State University of Southwestern Bahia (UESB)",
+      "title": "Bachelor’s in Physics (Teaching)",
+      "period": "May 2016 — Feb 2020",
+      "description": "Strong foundation in logical thinking and problem solving, applied in research, engineering, and technology."
+    }
+  ],
+  "LanguageLevels": [
+    { "name": "Portuguese", "level": "Native" },
+    { "name": "English", "level": "Technical (reading & documentation)" }
+  ],
+  "SkillsByCategory": [
+    {
+      "category": "Languages & frameworks",
+      "items": [
+        "Node.js",
+        "TypeScript",
+        "JavaScript",
+        "NestJS",
+        ".NET",
+        "C#",
+        "Blazor",
+        "Ruby on Rails",
+        "React",
+        "Next.js",
+        "Vite"
+      ]
+    },
+    {
+      "category": "Architecture & backend",
+      "items": [
+        "Microservices",
+        "API design",
+        "Serverless Framework",
+        "Configurable integrations (uConnect)"
+      ]
+    },
+    {
+      "category": "Databases",
+      "items": ["PostgreSQL", "MySQL", "SQL Server", "MongoDB", "Redis"]
+    },
+    {
+      "category": "DevOps & cloud",
+      "items": [
+        "AWS (SQS, Lambda, CodePipeline)",
+        "Docker",
+        "GitHub Actions",
+        "CI/CD"
+      ]
+    },
+    {
+      "category": "Practices",
+      "items": [
+        "Scrum / Kanban",
+        "Git Flow",
+        "Code review",
+        "Technical mentoring",
+        "Technical leadership"
+      ]
+    }
+  ],
+  "StackMarquee": [
+    "TypeScript",
+    "Vite",
+    "NestJS",
+    "React",
+    ".NET",
+    "Ruby on Rails",
+    "PostgreSQL",
+    "AWS",
+    "Docker",
+    "Microservices",
+    "CI/CD"
+  ],
+  "RecruiterAtAGlance": [
+    { "label": "Seniority", "value": "Senior full-stack developer" },
+    { "label": "Product experience", "value": "Since 2022 (B2B/B2C squads)" },
+    { "label": "Leadership", "value": "Engineering and integrations teams" },
+    { "label": "Current focus", "value": "Front (Vite) + API contracts + RD data" }
+  ],
+  "EmployerImpactBlocks": [
+    {
+      "id": "bonifiq-impact",
+      "company": "BonifiQ",
+      "subtitle": "Engage ecosystem",
+      "period": "2025 — 2026",
+      "metrics": [
+        {
+          "kind": "int",
+          "value": 7,
+          "label": "concurrent React + Vite applications in production"
+        },
+        {
+          "kind": "int",
+          "value": 550,
+          "suffix": "+",
+          "label": "e-commerce sites served by distributed products"
+        }
+      ],
+      "caption": "B2B-scale delivery: solutions used by millions of end users through client channels."
+    },
+    {
+      "id": "umode-impact",
+      "company": "uMode",
+      "subtitle": "Integrations & uConnect",
+      "period": "2023 — 2025",
+      "metrics": [
+        {
+          "kind": "millions",
+          "value": 2.5,
+          "suffix": "+",
+          "label": "records integrated per day at peak (order of magnitude for daily volume)"
+        }
+      ],
+      "caption": "Integration pipeline moving millions of data points per day, focused on reliability across systems."
+    }
+  ],
+  "ValuePropositions": [
+    {
+      "title": "Bridge between product, front end, and back end",
+      "description": "I can specify and negotiate API contracts, track backend changes, and ensure the front end consumes data consistently — less rework across teams."
+    },
+    {
+      "title": "Architecture and integrations at scale",
+      "description": "Experience with microservices and configurable integrations (uConnect): data-flow design, evolution from Serverless to NestJS, and integrity between systems."
+    },
+    {
+      "title": "Front end in a large ecosystem",
+      "description": "Maintenance and architecture of multiple React + TypeScript apps (widgets, checkouts, editors), focused on performance and consistency."
+    },
+    {
+      "title": "Consulting and business sense",
+      "description": "At FCamara, work with Raia Drogasil (RD): integration-data dashboards, turning business needs into reliable, auditable interfaces."
+    }
+  ],
+  "FeaturedProjects": [
+    {
+      "id": "rd-painéis",
+      "title": "Integration dashboards — Raia Drogasil (RD)",
+      "context": "FCamara · consulting",
+      "period": "2026 — present",
+      "summary": "Dashboards that consolidate and display data from integrations, focused on operational clarity and alignment with what the backend exposes.",
+      "stack": ["Vite", "React", "TypeScript", "Data integration", "APIs"],
+      "highlights": [
+        "Vite front end with close collaboration with the backend team.",
+        "Definition and refinement of contracts for safe data consumption."
+      ]
+    },
+    {
+      "id": "engage-bonifiq",
+      "title": "Engage ecosystem — BonifiQ",
+      "context": "Technical leadership & full-stack",
+      "period": "2025 — 2026",
+      "summary": "Technical coordination for a high-impact team and a broad set of front-end applications, with continuous delivery on .NET in the backend.",
+      "stack": ["React", "TypeScript", "Vite", ".NET", "C#", "Front-end architecture"],
+      "highlights": [
+        "7 concurrent React + Vite apps in production at B2B scale.",
+        "Mentoring and technical growth for front-end developers."
+      ]
+    },
+    {
+      "id": "uconnect",
+      "title": "uConnect — integration engine",
+      "context": "uMode · integrations lead",
+      "period": "2023 — 2025",
+      "summary": "Microservice for dynamic integrations driven by database configuration, reducing friction in data flow between the platform and external systems.",
+      "stack": ["NestJS", "TypeScript", "Microservices", "PostgreSQL", "AWS"],
+      "highlights": [
+        "Conception and architecture of the service from idea to production.",
+        "Migration from Serverless to a more sustainable NestJS architecture."
+      ]
+    },
+    {
+      "id": "crm-yaris",
+      "title": "CRM platform — Yaris Solar",
+      "context": "Full-stack",
+      "period": "2022",
+      "summary": "CRM for customer relationship management, organizing sales processes on a foundation ready to grow with the business.",
+      "stack": ["React", "NestJS", "TypeScript", "REST APIs"],
+      "highlights": [
+        "End-to-end ownership: UI and API.",
+        "Modeling aimed at scalability and clear domain boundaries."
+      ]
+    }
+  ]
+}

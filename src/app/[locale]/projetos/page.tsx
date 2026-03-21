@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 
+import { Link } from "@/i18n/navigation";
 import { PageBackdrop } from "@/components/layout/page-backdrop";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
@@ -15,29 +16,52 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { contact } from "@/content/portfolio";
-import { featuredProjects } from "@/content/recruiter";
+import type { FeaturedProject } from "@/content/recruiter";
+import { getSiteUrl } from "@/config/site";
+import { languageAlternates } from "@/lib/locale-meta";
 
-const projetosDescription =
-  "Cases de João Ferraz: integrações RD, Engage BonifiQ, uConnect, CRM — stack, contexto e impacto em alto nível para recrutadores e tech leads.";
-
-export const metadata: Metadata = {
-  title: "Projetos e cases",
-  description: projetosDescription,
-  alternates: { canonical: "/projetos" },
-  openGraph: {
-    title: "Projetos e cases",
-    description: projetosDescription,
-    url: "/projetos",
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Projetos e cases | João Ferraz",
-    description: projetosDescription,
-  },
+type PageProps = {
+  params: Promise<{ locale: string }>;
 };
 
-export default function ProjetosPage() {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
+  const { locale } = await params;
+  const siteUrl = getSiteUrl();
+  const t = await getTranslations({ locale, namespace: "ProjectsPage" });
+  const path = "/projetos";
+
+  return {
+    title: t("title"),
+    description: t("description"),
+    alternates: {
+      canonical: `/${locale}${path}`,
+      languages: languageAlternates(siteUrl.origin, path),
+    },
+    openGraph: {
+      title: t("title"),
+      description: t("description"),
+      url: `/${locale}${path}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${t("title")} | João Ferraz`,
+      description: t("description"),
+    },
+  };
+}
+
+export default async function ProjetosPage({ params }: PageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
+  const t = await getTranslations("ProjectsPage");
+  const tHighlights = await getTranslations("RecruiterSection");
+  const messages = await getMessages();
+  const featuredProjects = messages.FeaturedProjects as FeaturedProject[];
+
   return (
     <div className="relative flex min-h-full flex-1 flex-col">
       <PageBackdrop />
@@ -46,30 +70,32 @@ export default function ProjetosPage() {
       <main className="flex flex-1 flex-col">
         <div className="mx-auto w-full max-w-6xl px-4 pt-10 pb-6 sm:px-6 sm:pt-14">
           <Button variant="ghost" size="sm" className="-ml-2 text-muted-foreground" asChild>
-            <Link href="/">← Voltar ao início</Link>
+            <Link href="/">{t("backHome")}</Link>
           </Button>
           <h1 className="mt-6 font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Projetos e cases
+            {t("title")}
           </h1>
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Visão em alto nível de entregas relevantes — sem expor detalhes
-            confidenciais de cliente. Para aprofundar conversa técnica,{" "}
-            <a
-              href={contact.linkedin}
-              className="font-medium text-primary underline-offset-4 hover:underline"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              fale comigo no LinkedIn
-            </a>{" "}
-            ou use o{" "}
-            <Link
-              href="/#contato"
-              className="font-medium text-primary underline-offset-4 hover:underline"
-            >
-              contato
-            </Link>{" "}
-            no site.
+            {t.rich("lead", {
+              linkedin: (chunks) => (
+                <a
+                  href={contact.linkedin}
+                  className="font-medium text-primary underline-offset-4 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {chunks}
+                </a>
+              ),
+              contact: (chunks) => (
+                <Link
+                  href="/#contato"
+                  className="font-medium text-primary underline-offset-4 hover:underline"
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
           </p>
         </div>
 
@@ -105,7 +131,7 @@ export default function ProjetosPage() {
                   </CardHeader>
                   <CardContent className="pt-0">
                     <p className="mb-2 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                      Destaques
+                      {tHighlights("highlightsLabel")}
                     </p>
                     <ul className="list-inside list-disc space-y-2 text-sm text-muted-foreground">
                       {project.highlights.map((h, i) => (

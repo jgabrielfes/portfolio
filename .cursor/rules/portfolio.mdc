@@ -33,13 +33,13 @@ alwaysApply: true
 
 ## Estrutura útil
 
-- `src/app/` — rotas (`/`, `/experiencia`, `/projetos`), `layout.tsx`, `globals.css`.
+- `src/app/` — rotas com locale (`/pt`, `/en`, `/es`, … + `/experiencia`, `/projetos`), `proxy.ts` (next-intl), `layout.tsx`, `globals.css`.
 - `src/components/layout/` — header, footer, backdrop, `mobile-nav`.
 - `src/components/landing/` — landing composta; `reveal.tsx` é wrapper sem animação com `transform` no container (evita “buraco” de layout).
 - `src/components/sections/` — blocos reutilizáveis (skills, experiência, educação, recrutadores).
 - `src/components/ui/` — shadcn.
-- `src/content/portfolio.ts` — dados do CV / contato / experiência / skills.
-- `src/content/recruiter.ts` — bloco recrutadores, cases, `resumePdfUrl` (ex.: `/jgabrielfes-cv.pdf` em `public/`).
+- `src/content/portfolio.ts` — contacto e URL do repositório (não traduzidos).
+- `src/content/recruiter.ts` — tipos e `resumePdfUrl`; textos traduzidos em `src/messages/{pt,en,es}.json` (next-intl).
 - `src/config/navigation.ts` — links do menu.
 - `src/**/*.test.ts(x)` — testes unitários (Vitest + Testing Library); `yarn test` / `yarn test:run`.
 

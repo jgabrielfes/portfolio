@@ -1,11 +1,11 @@
-import type { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-import { LandingView } from "@/components/landing/landing-view";
+import { routing } from "@/i18n/routing";
 
-export const metadata: Metadata = {
-  alternates: { canonical: "/" },
-};
-
-export default function Home() {
-  return <LandingView />;
+/**
+ * Fallback se o pedido chegar sem redirecionamento do middleware.
+ * O middleware do next-intl costuma enviar `/` para `/{locale}` com base no navegador.
+ */
+export default function RootPage() {
+  redirect(`/${routing.defaultLocale}`);
 }

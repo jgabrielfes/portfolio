@@ -3,6 +3,7 @@
 import * as React from "react";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -18,6 +19,7 @@ import {
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
+  const t = useTranslations("Theme");
 
   React.useEffect(() => {
     setMounted(true);
@@ -44,7 +46,7 @@ export function ThemeToggle() {
           variant="outline"
           size="icon-sm"
           className="size-8 shrink-0"
-          aria-label="Tema da aplicação"
+          aria-label={t("toggleAria")}
         >
           {resolvedTheme === "dark" ? (
             <Moon className="size-4" />
@@ -55,7 +57,7 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="min-w-40">
         <DropdownMenuLabel className="text-xs font-medium">
-          Aparência
+          {t("appearance")}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuRadioGroup
@@ -64,15 +66,15 @@ export function ThemeToggle() {
         >
           <DropdownMenuRadioItem value="system" className="gap-2">
             <Monitor className="size-3.5" />
-            Sistema
+            {t("system")}
           </DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="light" className="gap-2">
             <Sun className="size-3.5" />
-            Claro
+            {t("light")}
           </DropdownMenuRadioItem>
           <DropdownMenuRadioItem value="dark" className="gap-2">
             <Moon className="size-3.5" />
-            Escuro
+            {t("dark")}
           </DropdownMenuRadioItem>
         </DropdownMenuRadioGroup>
       </DropdownMenuContent>

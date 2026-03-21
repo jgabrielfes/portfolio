@@ -27,24 +27,3 @@ export function getSiteUrl(): URL {
 
   return new URL("http://localhost:3000");
 }
-
-/** Descrição para meta, Open Graph, Twitter e pré-visualizações (ex.: WhatsApp). */
-export const defaultSiteDescription =
-  "Portfólio de João Ferraz — desenvolvedor full-stack sênior (FCamara, consultoria RD, Vite). Microsserviços, contratos de API, React, NestJS, .NET e liderança técnica.";
-
-export const siteKeywords = [
-  "João Ferraz",
-  "desenvolvedor full-stack",
-  "full-stack sênior",
-  "TypeScript",
-  "React",
-  "Next.js",
-  "Vite",
-  "NestJS",
-  ".NET",
-  "microsserviços",
-  "integrações",
-  "API",
-  "FCamara",
-  "líder técnico",
-] as const;

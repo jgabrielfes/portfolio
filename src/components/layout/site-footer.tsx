@@ -1,45 +1,49 @@
 import { Github, Linkedin, Mail } from "lucide-react";
-import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 
 import { Button } from "@/components/ui/button";
 import { contact, portfolioRepoUrl } from "@/content/portfolio";
+import { Link } from "@/i18n/navigation";
 
-const socials = [
-  {
-    href: contact.github,
-    label: "GitHub",
-    icon: Github,
-  },
-  {
-    href: contact.linkedin,
-    label: "LinkedIn",
-    icon: Linkedin,
-  },
-  {
-    href: `mailto:${contact.email}`,
-    label: "E-mail",
-    icon: Mail,
-  },
-] as const;
+export async function SiteFooter() {
+  const t = await getTranslations("Footer");
+  const year = new Date().getFullYear();
 
-export function SiteFooter() {
+  const socials = [
+    {
+      href: contact.github,
+      labelKey: "socialGithub" as const,
+      icon: Github,
+    },
+    {
+      href: contact.linkedin,
+      labelKey: "socialLinkedin" as const,
+      icon: Linkedin,
+    },
+    {
+      href: `mailto:${contact.email}`,
+      labelKey: "socialEmail" as const,
+      icon: Mail,
+    },
+  ] as const;
+
   return (
     <footer className="border-t border-border/60 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6">
         <p className="max-w-md text-center text-xs leading-relaxed text-muted-foreground sm:max-w-none sm:text-left">
-          © {new Date().getFullYear()} João Ferraz.{" "}
+          {t("copyright", { year })}{" "}
           <Link
             href="/experiencia"
             className="underline-offset-4 hover:text-foreground hover:underline"
           >
-            Experiência
+            {t("experience")}
           </Link>
           {" · "}
           <Link
             href="/projetos"
             className="underline-offset-4 hover:text-foreground hover:underline"
           >
-            Projetos
+            {t("projects")}
           </Link>
           {" · "}
           <a
@@ -48,12 +52,12 @@ export function SiteFooter() {
             rel="noopener noreferrer"
             className="underline-offset-4 hover:text-foreground hover:underline"
           >
-            Código no GitHub
+            {t("sourceOnGitHub")}
           </a>
           .
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-2">
-          {socials.map(({ href, label, icon: Icon }) => (
+          {socials.map(({ href, labelKey, icon: Icon }) => (
             <li key={href}>
               <Button variant="ghost" size="icon-sm" asChild>
                 <a
@@ -64,7 +68,7 @@ export function SiteFooter() {
                       ? undefined
                       : "noopener noreferrer"
                   }
-                  aria-label={label}
+                  aria-label={t(labelKey)}
                 >
                   <Icon className="size-4" />
                 </a>

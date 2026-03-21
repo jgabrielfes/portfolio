@@ -1,3 +1,5 @@
+import { getMessages, getTranslations } from "next-intl/server";
+
 import { Reveal } from "@/components/landing/reveal";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -6,18 +8,27 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { education, languages } from "@/content/portfolio";
 import { cn } from "@/lib/utils";
+
+type EducationItem = {
+  institution: string;
+  title: string;
+  period: string;
+  description: string;
+};
+
+type LanguageRow = { name: string; level: string };
 
 type EducationSectionProps = {
   className?: string;
 };
 
-/**
- * Faixa de fundo em largura total (como Habilidades técnicas): `bg-muted/20` no
- * `<section>`; conteúdo limitado com `max-w-6xl` + padding lateral só no inner.
- */
-export function EducationSection({ className }: EducationSectionProps) {
+export async function EducationSection({ className }: EducationSectionProps) {
+  const t = await getTranslations("EducationSection");
+  const messages = await getMessages();
+  const education = messages.EducationItems as EducationItem[];
+  const languages = messages.LanguageLevels as LanguageRow[];
+
   return (
     <section
       id="formacao"
@@ -29,10 +40,10 @@ export function EducationSection({ className }: EducationSectionProps) {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mb-10 max-w-xl">
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Formação &amp; idiomas
+            {t("heading")}
           </h2>
           <p className="mt-3 text-sm text-muted-foreground sm:text-base">
-            Base acadêmica e estudo contínuo em tecnologia.
+            {t("lead")}
           </p>
         </Reveal>
 
@@ -61,7 +72,7 @@ export function EducationSection({ className }: EducationSectionProps) {
           <Reveal delayMs={160}>
             <Card className="h-full border-border/70 lg:col-span-2">
               <CardHeader>
-                <CardTitle className="text-base">Idiomas</CardTitle>
+                <CardTitle className="text-base">{t("languagesTitle")}</CardTitle>
                 <ul className="mt-2 flex flex-wrap gap-3">
                   {languages.map((lang) => (
                     <li key={lang.name}>

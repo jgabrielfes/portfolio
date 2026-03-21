@@ -1,7 +1,9 @@
-import Link from "next/link";
 import { Briefcase } from "lucide-react";
+import { getMessages, getTranslations } from "next-intl/server";
 
+import { Link } from "@/i18n/navigation";
 import { Reveal } from "@/components/landing/reveal";
+import { EmployerImpactStats } from "@/components/sections/employer-impact-stats";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,15 +11,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { EmployerImpactStats } from "@/components/sections/employer-impact-stats";
 import {
-  employerImpactBlocks,
-  recruiterAtAGlance,
+  type EmployerImpactBlock,
   resumePdfUrl,
-  valuePropositions,
 } from "@/content/recruiter";
 
-export function RecruiterSection() {
+type AtAGlance = { label: string; value: string };
+type ValueProp = { title: string; description: string };
+
+export async function RecruiterSection() {
+  const t = await getTranslations("RecruiterSection");
+  const messages = await getMessages();
+  const recruiterAtAGlance = messages.RecruiterAtAGlance as AtAGlance[];
+  const employerImpactBlocks = messages.EmployerImpactBlocks as EmployerImpactBlock[];
+  const valuePropositions = messages.ValuePropositions as ValueProp[];
+
   return (
     <section
       id="recrutadores"
@@ -26,11 +34,10 @@ export function RecruiterSection() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <Reveal className="mb-10 max-w-2xl">
           <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-            Para recrutadores
+            {t("heading")}
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">
-            Resumo objetivo do perfil e do tipo de impacto que costumo gerar em
-            squad — antes do mergulho no currículo completo ou nos cases.
+            {t("lead")}
           </p>
         </Reveal>
 
@@ -72,16 +79,16 @@ export function RecruiterSection() {
           <Button size="lg" asChild>
             <Link href="/projetos">
               <Briefcase className="size-4" />
-              Ver cases e projetos
+              {t("viewCases")}
             </Link>
           </Button>
           <Button size="lg" variant="outline" asChild>
-            <Link href="/experiencia">Linha do tempo completa</Link>
+            <Link href="/experiencia">{t("fullTimeline")}</Link>
           </Button>
           {resumePdfUrl ? (
             <Button size="lg" variant="outline" asChild>
               <a href={resumePdfUrl} target="_blank" rel="noopener noreferrer">
-                Baixar CV (PDF)
+                {t("downloadCv")}
               </a>
             </Button>
           ) : null}
