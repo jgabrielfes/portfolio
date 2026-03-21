@@ -9,7 +9,7 @@ export function PersonJsonLd() {
     "@type": "Person",
     name: "João Ferraz",
     url: base,
-    image: `${base}/logo.jpg`,
+    image: `${base}/logo.png`,
     jobTitle: "Desenvolvedor Full-stack Sênior",
     description: professionalSummary,
     email: contact.email,

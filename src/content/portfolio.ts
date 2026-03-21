@@ -8,6 +8,10 @@ export const contact = {
   github: "https://github.com/jgabrielfes",
 } as const;
 
+/** Código-fonte deste site (README + link no rodapé). Ajuste se o repositório tiver outro nome. */
+export const portfolioRepoUrl =
+  "https://github.com/jgabrielfes/portfolio" as const;
+
 export const professionalSummary =
   "Desenvolvedor full-stack sênior com sólida experiência em arquitetura de microsserviços, liderança técnica e mentoria. Atualmente na FCamara com foco em front-end (Vite), consultoria para Raia Drogasil (RD) em painéis com dados de integração e alinhamento de contratos de API com o back-end. Especialista em Node.js (TypeScript/NestJS), .NET e Ruby on Rails; histórico com uConnect (uMode) e liderança técnica no Engage (BonifiQ). Formação em Física (Licenciatura).";
 

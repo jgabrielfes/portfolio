@@ -2,7 +2,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { contact } from "@/content/portfolio";
+import { contact, portfolioRepoUrl } from "@/content/portfolio";
 
 const socials = [
   {
@@ -26,7 +26,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border/60 py-10">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-4 sm:flex-row sm:px-6">
-        <p className="text-center text-xs text-muted-foreground sm:text-left">
+        <p className="max-w-md text-center text-xs leading-relaxed text-muted-foreground sm:max-w-none sm:text-left">
           © {new Date().getFullYear()} João Ferraz.{" "}
           <Link
             href="/experiencia"
@@ -41,6 +41,15 @@ export function SiteFooter() {
           >
             Projetos
           </Link>
+          {" · "}
+          <a
+            href={portfolioRepoUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline-offset-4 hover:text-foreground hover:underline"
+          >
+            Código no GitHub
+          </a>
           .
         </p>
         <ul className="flex flex-wrap items-center justify-center gap-2">

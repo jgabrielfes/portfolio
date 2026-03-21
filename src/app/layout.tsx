@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     description: defaultSiteDescription,
     images: [
       {
-        url: "/logo.jpg",
-        width: 1024,
-        height: 1045,
+        url: "/logo.png",
+        width: 494,
+        height: 505,
         alt: "João Ferraz — identidade visual do portfólio",
         type: "image/jpeg",
       },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "João Ferraz — Desenvolvedor Full-Stack",
     description: defaultSiteDescription,
-    images: ["/logo.jpg"],
+    images: ["/logo.png"],
   },
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],

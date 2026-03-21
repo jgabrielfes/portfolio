@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Tipos gerados / auxiliares do Next (não formatados para regras estritas)
+    "types/**",
   ]),
 ]);
 

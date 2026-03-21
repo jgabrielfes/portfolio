@@ -41,6 +41,7 @@ alwaysApply: true
 - `src/content/portfolio.ts` — dados do CV / contato / experiência / skills.
 - `src/content/recruiter.ts` — bloco recrutadores, cases, `resumePdfUrl` (ex.: `/jgabrielfes-cv.pdf` em `public/`).
 - `src/config/navigation.ts` — links do menu.
+- `src/**/*.test.ts(x)` — testes unitários (Vitest + Testing Library); `yarn test` / `yarn test:run`.
 
 ## UI e layout
 
@@ -58,4 +59,4 @@ alwaysApply: true
 
 ## Verificação
 
-- Após alterações relevantes: `yarn build` com Node 24.
+- Após alterações relevantes: `yarn test:run`, `yarn build` (Node 24).
