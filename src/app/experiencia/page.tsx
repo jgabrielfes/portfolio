@@ -33,7 +33,7 @@ export default function ExperienciaPage() {
         </div>
 
         <ExperienceSection variant="full" className="pt-0" />
-        <EducationSection className="border-t border-border/60 bg-muted/10 pb-24" />
+        <EducationSection className="pb-24" />
       </main>
 
       <SiteFooter />

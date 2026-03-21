@@ -111,4 +111,4 @@ export const featuredProjects: readonly FeaturedProject[] = [
 ] as const;
 
 /** Se hospedar um PDF público (ex.: /curriculo.pdf em /public), coloque a URL aqui. */
-export const resumePdfUrl: string | null = null;
+export const resumePdfUrl: string | null = '/jgabrielfes-cv.pdf';

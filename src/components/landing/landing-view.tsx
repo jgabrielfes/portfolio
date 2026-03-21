@@ -49,37 +49,57 @@ export function LandingView() {
               </p>
             </div>
 
-            <div className="animate-in fade-in slide-in-from-bottom-6 fill-mode-both flex flex-wrap items-center gap-3 delay-300 duration-700 ease-out">
-              <Button size="lg" asChild>
+            <div className="animate-in fade-in slide-in-from-bottom-6 fill-mode-both flex flex-wrap items-stretch gap-2 delay-300 duration-700 ease-out sm:items-center sm:gap-3">
+              <Button size="lg" className="min-h-10 w-full min-[380px]:w-auto" asChild>
                 <a
                   href={contact.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Linkedin className="size-4" />
+                  <Linkedin className="size-4 shrink-0" />
                   LinkedIn
                 </a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button
+                size="lg"
+                variant="outline"
+                className="min-h-10 w-full min-[380px]:w-auto"
+                asChild
+              >
                 <a
                   href={contact.github}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Github className="size-4" />
+                  <Github className="size-4 shrink-0" />
                   GitHub
                 </a>
               </Button>
-              <Button size="lg" variant="ghost" asChild>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="min-h-10 w-[calc(50%-0.25rem)] min-[380px]:w-auto sm:w-auto"
+                asChild
+              >
                 <Link href="/projetos">Cases</Link>
               </Button>
-              <Button size="lg" variant="ghost" asChild>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="min-h-10 w-[calc(50%-0.25rem)] min-[380px]:w-auto sm:w-auto"
+                asChild
+              >
                 <Link href="/experiencia">Experiência</Link>
               </Button>
-              <Button size="lg" variant="ghost" asChild>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="min-h-10 w-full min-[380px]:w-auto"
+                asChild
+              >
                 <a href="#sobre">
                   Sobre mim
-                  <ArrowDown className="size-4 opacity-70" />
+                  <ArrowDown className="size-4 shrink-0 opacity-70" />
                 </a>
               </Button>
             </div>
@@ -148,57 +168,83 @@ export function LandingView() {
 
         <ExperienceSection variant="preview" />
 
-        <EducationSection className="border-t border-border/60 bg-muted/10" />
+        <EducationSection />
 
         <RecruiterSection />
 
         <section
           id="contato"
-          className="border-t border-border/60 bg-muted/15 py-20 sm:py-24"
+          className="border-t border-border/60 bg-muted/15 py-16 sm:py-20 md:py-24"
         >
-          <Reveal className="mx-auto max-w-3xl rounded-2xl border border-border/70 bg-card/80 p-8 text-center shadow-sm ring-1 ring-foreground/5 backdrop-blur-sm sm:p-10">
-            <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-              Vamos conversar?
-            </h2>
-            <p className="mx-auto mt-4 max-w-lg text-pretty text-sm text-muted-foreground sm:text-base">
-              Projetos, liderança técnica ou parcerias — fico à disposição pelo
-              e-mail, telefone ou redes.
-            </p>
-            <div className="mt-8 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
-              <Button size="lg" asChild>
-                <a href={`mailto:${contact.email}`}>
-                  <Mail className="size-4" />
-                  {contact.email}
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a href={`tel:${contact.phoneTel}`}>
-                  <Phone className="size-4" />
-                  {contact.phoneDisplay}
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a
-                  href={contact.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
+          <div className="mx-auto w-full max-w-6xl px-4 sm:px-6">
+            <Reveal className="mx-auto w-full max-w-3xl rounded-2xl border border-border/70 bg-card/80 p-6 text-center shadow-sm ring-1 ring-foreground/5 backdrop-blur-sm sm:p-8 md:p-10">
+              <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-4xl">
+                Vamos conversar?
+              </h2>
+              <p className="mx-auto mt-4 max-w-lg text-pretty text-sm text-muted-foreground sm:text-base">
+                Projetos, liderança técnica ou parcerias — fico à disposição pelo
+                e-mail, telefone ou redes.
+              </p>
+              <div className="mt-6 flex flex-col items-stretch gap-2 sm:mt-8 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-3">
+                <Button
+                  size="lg"
+                  className="min-h-11 w-full min-w-0 justify-center gap-2 px-3 sm:w-auto sm:min-w-0 sm:max-w-full"
+                  asChild
                 >
-                  <Linkedin className="size-4" />
-                  LinkedIn
-                </a>
-              </Button>
-              <Button size="lg" variant="outline" asChild>
-                <a
-                  href={contact.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  <a
+                    href={`mailto:${contact.email}`}
+                    className="break-all sm:break-normal"
+                  >
+                    <Mail className="size-4 shrink-0" />
+                    <span className="text-left text-xs sm:text-sm">
+                      {contact.email}
+                    </span>
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="min-h-11 w-full sm:w-auto"
+                  asChild
                 >
-                  <Github className="size-4" />
-                  GitHub
-                </a>
-              </Button>
-            </div>
-          </Reveal>
+                  <a href={`tel:${contact.phoneTel}`}>
+                    <Phone className="size-4 shrink-0" />
+                    {contact.phoneDisplay}
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="min-h-11 w-full sm:w-auto"
+                  asChild
+                >
+                  <a
+                    href={contact.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Linkedin className="size-4 shrink-0" />
+                    LinkedIn
+                  </a>
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="min-h-11 w-full sm:w-auto"
+                  asChild
+                >
+                  <a
+                    href={contact.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github className="size-4 shrink-0" />
+                    GitHub
+                  </a>
+                </Button>
+              </div>
+            </Reveal>
+          </div>
         </section>
       </main>
 

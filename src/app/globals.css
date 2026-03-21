@@ -191,9 +191,10 @@
   }
 }
 
+/* --marquee-segments = cópias idênticas da lista no HTML; -100%/n = desloca exatamente 1 cópia (loop sem buraco). */
 @keyframes landing-marquee {
   to {
-    transform: translateX(-50%);
+    transform: translateX(calc(-100% / var(--marquee-segments, 2)));
   }
 }
 
