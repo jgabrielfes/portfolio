@@ -1,28 +1,18 @@
-<!-- BEGIN:nextjs-agent-rules -->
+# AGENTS.md — índice
 
-# Ambiente Node
+As **regras completas** para assistentes (Cursor e outras IAs) estão em:
 
-Antes de instalar dependências ou rodar scripts (`yarn`, `npm`, `next`, etc.), use **Node 24** com nvm:
+**[`.cursor/rules/portfolio.mdc`](.cursor/rules/portfolio.mdc)**  
+Esse ficheiro usa `alwaysApply: true`, por isso o **Cursor** injeta o contexto em praticamente todos os pedidos neste repositório.
 
-```bash
-nvm use 24
-```
+## Resumo rápido
 
-Com `direnv` ou `nvm` configurado para ler `.nvmrc`, `nvm use` na raiz do repo já seleciona a versão certa.
+| Tópico | Onde |
+|--------|------|
+| Node 24, yarn, nvm | `.nvmrc` + regra `portfolio.mdc` |
+| Conventional Commits | `portfolio.mdc` |
+| Next.js 16 (ler docs locais) | `portfolio.mdc` |
+| Pastas, conteúdo, UI (full-bleed, marquee) | `portfolio.mdc` |
+| Respostas ao utilizador | Português (PT-BR) |
 
-# Commits (Conventional Commits)
-
-Sempre que for **criar mensagens de commit**, **sugerir** um commit ou **executar** `git commit` em nome do usuário, use o padrão **[Conventional Commits](https://www.conventionalcommits.org/)**:
-
-- Formato: `<tipo>[escopo opcional]: <descrição>`
-- A descrição deve ser **curta**, no **imperativo** (ex.: “adiciona”, não “adicionado” ou “adicionando”) e, em geral, **sem ponto final**.
-- **Tipos comuns:** `feat` (funcionalidade), `fix` (correção), `docs` (documentação), `style` (formatação, sem mudar lógica), `refactor`, `perf`, `test`, `chore` (tarefas/manutenção), `ci`, `build`, `revert`.
-- **Breaking change:** use `!` após o tipo/escopo (ex.: `feat!: remove API legada`) ou rodapé `BREAKING CHANGE:` na mensagem completa.
-- **Escopo:** opcional e útil quando há módulo claro (ex.: `feat(landing): adiciona seção de contato`).
-
-Exemplos: `fix(header): corrige menu mobile no iOS`, `chore: atualiza dependências`, `docs(agents): documenta padrão de commits`.
-
-# This is NOT the Next.js you know
-
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+Se editar convenções do projeto, atualize **`.cursor/rules/portfolio.mdc`** e, se quiser, este resumo.

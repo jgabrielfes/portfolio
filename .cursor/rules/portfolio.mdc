@@ -1,0 +1,60 @@
+---
+description: Regras do portfólio João Ferraz — stack, convenções e contexto para IA
+alwaysApply: true
+---
+
+# Portfólio (jgabrielfes) — contexto para assistentes
+
+## Idioma
+
+- Respostas ao utilizador em **português (PT-BR)**.
+- Texto da UI, metadados e conteúdo do site: **PT-BR**, salvo pedido explícito em outro idioma.
+
+## Node e comandos
+
+- **Node 24** (ver `.nvmrc`). Antes de `yarn`, `npm`, `npx`, `next`: `nvm use 24`.
+- Gestor de pacotes do projeto: **yarn**.
+
+## Commits (Conventional Commits)
+
+- Formato: `<tipo>[escopo opcional]: <descrição>` (imperativo, curta, sem ponto final no fim).
+- Tipos: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `chore`, `ci`, `build`, `revert`.
+- Breaking change: `!` após tipo/escopo ou rodapé `BREAKING CHANGE:`.
+- Referência: https://www.conventionalcommits.org/
+
+## Next.js
+
+- **Next.js 16** — há breaking changes face a versões antigas; antes de assumir APIs, ler guias em `node_modules/next/dist/docs/` e respeitar avisos de depreciação.
+
+## Stack
+
+- **Next.js** (App Router), **React 19**, **TypeScript**, **Tailwind CSS v4**, **shadcn/ui** (estilo radix-mira, taupe), **next-themes** (tema sistema + toggle), **lucide-react**, **tw-animate-css**.
+- Alias: `@/*` → `src/*`.
+
+## Estrutura útil
+
+- `src/app/` — rotas (`/`, `/experiencia`, `/projetos`), `layout.tsx`, `globals.css`.
+- `src/components/layout/` — header, footer, backdrop, `mobile-nav`.
+- `src/components/landing/` — landing composta; `reveal.tsx` é wrapper sem animação com `transform` no container (evita “buraco” de layout).
+- `src/components/sections/` — blocos reutilizáveis (skills, experiência, educação, recrutadores).
+- `src/components/ui/` — shadcn.
+- `src/content/portfolio.ts` — dados do CV / contato / experiência / skills.
+- `src/content/recruiter.ts` — bloco recrutadores, cases, `resumePdfUrl` (ex.: `/jgabrielfes-cv.pdf` em `public/`).
+- `src/config/navigation.ts` — links do menu.
+
+## UI e layout
+
+- Tema: tokens em `globals.css` (`:root` / `.dark`); não hardcodar cores soltas se existir token.
+- **Secções com faixa de fundo** (ex. Habilidades, Formação): `<section class="w-full border-t … bg-muted/20">` + filho `mx-auto max-w-6xl px-4 sm:px-6` — fundo **full-bleed**, conteúdo alinhado.
+- **SkillsMarquee**: várias cópias da lista + `translateX(calc(-100% / var(--marquee-segments)))` em `globals.css`; manter TS e CSS sincronizados.
+- Favicon: `metadata.icons` em `layout.tsx` apontando para `/favicon.svg` (ou ficheiro em `public/`).
+
+## Alterações de código
+
+- Mudanças **focadas** no pedido; evitar refactors largos não solicitados.
+- Alinhar estilo ao código existente (imports, `cn`, componentes shadcn).
+- Não commitar segredos; `.env` não vai para o repositório.
+
+## Verificação
+
+- Após alterações relevantes: `yarn build` com Node 24.
