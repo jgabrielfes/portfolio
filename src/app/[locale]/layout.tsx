@@ -1,25 +1,14 @@
 import type { Metadata } from "next";
-import { Figtree, Geist_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 
-import { ThemeProvider } from "@/components/theme-provider";
+import { HtmlLangSync } from "@/components/layout/html-lang-sync";
 import { getSiteUrl } from "@/config/site";
 import { routing } from "@/i18n/routing";
 import { languageAlternates, toOpenGraphLocale } from "@/lib/locale-meta";
 import { getPersonJsonLdObject } from "@/lib/person-json-ld";
-import { cn } from "@/lib/utils";
-
-import "../globals.css";
-
-const figtree = Figtree({ subsets: ["latin"], variable: "--font-figtree" });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -105,37 +94,15 @@ export default async function LocaleLayout({ children, params }: LocaleLayoutPro
   const personJsonLd = await getPersonJsonLdObject(locale);
 
   return (
-    <html
-      lang={locale}
-      data-scroll-behavior="smooth"
-      suppressHydrationWarning
-      className={cn(
-        "h-full scroll-smooth antialiased font-sans",
-        figtree.variable,
-        geistMono.variable
-      )}
-    >
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(personJsonLd),
-          }}
-        />
-      </head>
-      <body className="min-h-full flex flex-col">
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-            storageKey="jgabrielfes-theme"
-          >
-            {children}
-          </ThemeProvider>
-        </NextIntlClientProvider>
-      </body>
-    </html>
+    <NextIntlClientProvider messages={messages}>
+      <HtmlLangSync />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personJsonLd),
+        }}
+      />
+      {children}
+    </NextIntlClientProvider>
   );
 }
